@@ -1,0 +1,9 @@
+
+DestroyModuleConfig fterm: *
+*fterm: Font -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*fterm: Columns 1
+*fterm: Colorset 5
+*fterm: BoxSize fixed
+*fterm: Geometry 600x400-90+40
+*fterm: (1x1, Frame 0,Swallow "frxvt" "Exec ~darkman/bin/rxvt2 -name frxvt") 
+

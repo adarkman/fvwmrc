@@ -1,0 +1,6 @@
+remove protoname=ICE protodata="" netid=inet6/darkman.ad.org.ua:60563 authname=MIT-MAGIC-COOKIE-1
+remove protoname=XSMP protodata="" netid=inet6/darkman.ad.org.ua:60563 authname=MIT-MAGIC-COOKIE-1
+remove protoname=ICE protodata="" netid=inet/darkman.ad.org.ua:52467 authname=MIT-MAGIC-COOKIE-1
+remove protoname=XSMP protodata="" netid=inet/darkman.ad.org.ua:52467 authname=MIT-MAGIC-COOKIE-1
+remove protoname=ICE protodata="" netid=local/darkman.ad.org.ua:/tmp/.ICE-unix/21541 authname=MIT-MAGIC-COOKIE-1
+remove protoname=XSMP protodata="" netid=local/darkman.ad.org.ua:/tmp/.ICE-unix/21541 authname=MIT-MAGIC-COOKIE-1

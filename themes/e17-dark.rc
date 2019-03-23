@@ -1,0 +1,111 @@
+SetEnv cs-window-active 1
+
+Emulate Mwm
+####################################### Colorsets
+# Active window
+Colorset 1 fg #ffffff, bg #313131
+# Inactive window 
+Colorset 2 fg #79A4B0, bg #313131
+#, RootTransparent buffer, Tint #838183 80, IconAlpha 80
+
+# Active Title
+Colorset 9 fg white, bg #313131
+# Inactive Title
+Colorset 10 fg white, bg #313131
+
+SetEnv cs-menu-active 4
+SetEnv cs-menu-inactive 3
+# Menu base
+Colorset 3 fg #ffffff, bg #313131, fgsh black, sh #232323, hi #393939
+#, RootTransparent, Tint black 50
+# Menu hilight
+Colorset 4 fg #ffffff, bg #005478, fgsh black, sh #002156, hi #596090
+
+# Pager
+Colorset 7 fg white, bg #185c68, RootTransparent, Tint #104c58 0
+Colorset 9 fg white, bg #185c68
+#, RootTransparent, Tint #104c58 0
+# Inactive window in pager / CDE
+#Colorset 5 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+#Colorset 5 fg white, bg #838183, sh black, hi #7f7f7f
+##Colorset 5 fg white, bg #313131, sh #232323, hi #393939 , RootTransparent, Tint #002000 95
+Colorset 5 fg white, bg #313131, sh #232323, hi #393939
+Colorset 18 fg white, bg #185c68, sh #005478
+Colorset 21 fg white, bg #185c68, sh #005478
+
+# IconMan
+Colorset 11 fg white, bg black, RootTransparent, Tint black 50
+# Active IconMan
+Colorset 12 fg white, bg black
+
+# Icon title
+Colorset 6 fg white, bg #313131, RootTransparent, Tint black 70
+#, Tint #104c58 20
+
+# Title
+Colorset 19 fg white, bg #313131
+
+SetEnv cs-panel-inactive 8
+# Panels
+Colorset 8 fg white, bg #313131 , RootTransparent buffer
+Colorset 20 fg white, bg black
+#, Tint #838183 50
+
+MenuStyle * TrianglesRelief
+
+####################################### Titles/Borrders/Buttons
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 2
+BorderStyle -- raised
+
+ButtonStyle reset
+ButtonStyle All Active (Colorset 1) \
+ 		Inactive (Colorset 2)
+
+ButtonStyle 1 ActiveUp Pixmap glass/close.png
+ButtonStyle 1 ActiveDown Pixmap glass/close_press.png
+ButtonStyle 1 InactiveUp Pixmap glass/close_inac.png
+ButtonStyle 1 InactiveDown Pixmap glass/close_press.png
+ButtonStyle 3 ActiveUp Pixmap glass/max.png
+ButtonStyle 3 ActiveDown Pixmap glass/max_press.png
+ButtonStyle 3 InactiveUp Pixmap glass/max_inac.png
+ButtonStyle 3 InactiveDown Pixmap glass/max_press.png
+ButtonStyle 2 ActiveUp Pixmap glass/min.png
+ButtonStyle 2 ActiveDown Pixmap glass/min_press.png
+ButtonStyle 2 InactiveUp Pixmap glass/min_inac.png
+ButtonStyle 2 InactiveDown Pixmap glass/min_press.png
+
+ButtonStyle All -- UseTitleStyle flat
+
+#AddButtonStyle 1 Vector 5 15x45@1 85x45@1 85x55@0 15x55@0 15x45@1 
+
+#AddButtonStyle 2 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+
+#AddButtonStyle 3 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+
+TitleStyle RightJustified Height 19
+TitleStyle ActiveUp Colorset 19
+TitleStyle ActiveDown Colorset 19
+TitleStyle InactiveUp Colorset 10
+TitleStyle InactiveDown Colorset 10
+TitleStyle Inactive -- flat
+TitleStyle Active -- flat
+AddTitleStyle Active MultiPixmap \
+						Main AdjustedPixmap glass/title-dark.png, \
+						Buttons AdjustedPixmap glass/title-dark.png, \
+						LeftButtons AdjustedPixmap glass/title-dark.png
+AddTitleStyle Inactive MultiPixmap \
+						Main AdjustedPixmap glass/title-dark.png, \
+						Buttons AdjustedPixmap glass/title-dark.png, \
+						LeftButtons AdjustedPixmap glass/title-dark.png
+
+
+Style * BorderWidth 2, HandleWidth 2
+Style * NoHandles
+Style * 		IndexedWindowName
+
+Mouse 3 1       A       Menu MenuFvwmWindowOps Close
+Mouse 1 1       A       Close
+Mouse 1 2		A		Thumbnail
+Mouse 2 3		A		WindowShade
+Mouse 1 3       A       Maximize 90 90

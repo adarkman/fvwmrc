@@ -1,0 +1,96 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 1 fg White, hi White, bg black
+Colorset 4 fg White, hi White, bg black
+
+# Active window
+Colorset 3 fg white, bg black, hi white
+
+#Menu
+Colorset 2 fg white, bg black, hi white , RootTransparent buffer, Tint black 50
+#, RootTransparent buffer, Tint white 60
+
+#Window Title 
+#active
+Colorset 7 fg White, hi White, bg white
+#inactive
+Colorset 8 fg White, hi White, bg black
+
+#Pager
+Colorset 9 fg DarkCyan, bg White, hi darkgreen, RootTransparent buffer, Tint black 50
+#bg #005478, hi #90b0b8
+#, RootTransparent buffer
+#, Tint #005478 50
+
+#CDE panel
+Colorset 5 fg white, bg black, hi white, RootTransparent buffer 
+#, Tint black 50
+#, Tint #3a6e84 50
+
+#IconMan
+Colorset 10 fg darkgreen, bg black, hi darkgreen
+#, RootTransparent buffer
+
+#Border active
+Colorset 11 fg white, bg white, hi white
+#Border inactive 
+Colorset 12 fg cyan, bg gray60, hi gray60
+
+#Icon Title
+Colorset 15 fg white, bg black, hi white
+#RootTransparent
+
+#Applications :-)
+Colorset 20 fg black, bg #ebeadb
+
+ButtonStyle reset
+
+ButtonStyle 1 Active Colorset 3
+ButtonStyle 1 Inactive Colorset 1
+ButtonStyle 2 Active Colorset 3
+ButtonStyle 2 Inactive Colorset 1
+AddButtonStyle 1 ActiveUp Pixmap NeXT/as-kill.xpm
+AddButtonStyle 1 ActiveDown Pixmap NeXT/as-kill-pressed.xpm
+AddButtonStyle 1 InactiveUp Pixmap NeXT/as-kill.xpm
+AddButtonStyle 1 InactiveDown Pixmap NeXT/as-kill-pressed.xpm
+AddButtonStyle 2 ActiveUp Pixmap NeXT/as-iconize.xpm
+AddButtonStyle 2 ActiveDown Pixmap NeXT/as-iconize-pressed.xpm
+AddButtonStyle 2 InactiveUp Pixmap NeXT/as-iconize.xpm
+AddButtonStyle 2 InactiveDown Pixmap NeXT/as-iconize-pressed.xpm
+
+ButtonStyle All -- UseTitleStyle flat
+
+BorderStyle Active Colorset 11
+BorderStyle Inactive Colorset 12
+BorderStyle Active (-- raised)
+BorderStyle Inactive (-- raised)
+
+TitleStyle Active Colorset 7 -- flat
+TitleStyle Inactive Colorset 8 -- flat
+
+TitleStyle LeftJustified
+
+AddToFunc DeiconifyAndRearrange
++ C All (CurrentPage Iconic) PlaceAgain Icon
+
+Mouse 1 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 3 1       A       Close
+Mouse 3 2		A		Thumbnail
+#Iconify
+Mouse 2 2		A		WindowShade
+Mouse 1 2       A       Maximize 80 80
+
+Style * 		IndexedWindowName
+Style *			BorderWidth 1, HandleWidth 1, NoHandles, NoTitle
+Style *         MWMFunctions, MWMBorder
+Style *			Font Shadow=2:xft:Teams:Regular:size=9:encoding=iso10646-1
+#Style *			IconBox 1000x110+3-3, IconFill left top
+Style *			IconBox 120x600-10+30, IconFill bottom left
+
+Style * 		NoIcon
+#,NoButton 1,NoButton 2
+
+#Key r		A	M	DeiconifyAndRearrange
+

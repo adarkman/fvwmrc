@@ -1,0 +1,27 @@
+#! /bin/bash
+
+echo "DestroyMenu recreate NetworkDrivesMenu"
+if [ "x`mount | grep Music/@gw | wc -l`" = "x1" ]; then
+	echo "AddToMenu $1 'Umount Music@gw'%devices/scsi.png% Exec umount /opt/Music/@gw"
+else
+	ssh -oBatchMode=yes -qn darkman@192.168.1.47
+
+	if [ $? -eq 0 ]; then
+		echo "AddToMenu $1 'Mount Music@gw'%devices/SCSI\\ Drive.png% Exec mount /opt/Music/@gw"
+	else	
+		echo "AddToMenu $1 'INACCESSIBLE Music@gw'%devices/SCSI\\ Drive.png% Nop"
+	fi
+fi	
+
+if [ "x`mount | grep darkman/Video | wc -l`" = "x1" ]; then
+	echo "AddToMenu $1 'Umount Video@gw'%devices/scsi.png% Exec fusermount -u ~/sshfs"
+else
+	ssh -oBatchMode=yes -qn darkman@192.168.1.47
+
+	if [ $? -eq 0 ]; then
+		echo "AddToMenu $1 'Mount Video@gw'%devices/SCSI\\ Drive.png% Exec sshfs gw:/home/public/darkman/Video ~/sshfs"
+	else	
+		echo "AddToMenu $1 'INACCESSIBLE Video@gw'%devices/SCSI\\ Drive.png% Nop"
+	fi
+fi	
+

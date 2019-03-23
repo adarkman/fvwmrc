@@ -1,0 +1,87 @@
+
+Emulate Mwm
+####################################### Colorsets
+# Active window
+Colorset 1 fg #00ff00, bg #005000
+# Inactive window 
+Colorset 2 fg #007000, bg #002000, sh #000D00, fgsh #000D00, hi #003000
+#, RootTransparent buffer, Tint #838183 80, IconAlpha 80
+
+# Active Title
+Colorset 9 fg white, bg black
+# Inactive Title
+Colorset 10 fg white, bg #002000
+
+SetEnv cs-menu-active 4
+SetEnv cs-menu-inactive 3
+# Menu base
+Colorset 3 fg #00ff00, bg #002000, fgsh black, sh #000d00, hi #003000
+#, RootTransparent, Tint black 50
+# Menu hilight
+Colorset 4 fg #00ff00, bg black, fgsh black, sh #000d00, hi #003000
+
+# Pager
+Colorset 7 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+Colorset 9 fg white, bg #002000
+#, RootTransparent, Tint #104c58 0
+# Inactive window in pager / CDE
+#Colorset 5 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+#Colorset 5 fg white, bg #838183, sh black, hi #7f7f7f
+Colorset 5 fg white, bg #002000, sh #000d00, hi #003000 , RootTransparent, Tint #002000 95
+Colorset 18 fg white, bg #004000, sh #000d00
+Colorset 21 fg white, bg #00ff00, sh #000d00
+
+# IconMan
+Colorset 11 fg white, bg black, RootTransparent, Tint black 50
+# Active IconMan
+Colorset 12 fg white, bg black
+
+# Icon title
+Colorset 6 fg white, bg blue, RootTransparent
+#, Tint #104c58 20
+
+# Title
+Colorset 19 fg white, bg black
+
+SetEnv cs-panel-inactive 8
+# Panels
+Colorset 8 fg white, bg #104C58 , RootTransparent buffer
+Colorset 20 fg white, bg black
+#, Tint #838183 50
+
+MenuStyle * TrianglesSolid
+
+####################################### Titles/Borrders/Buttons
+TitleStyle LeftJustified Height 20
+TitleStyle ActiveUp Colorset 19
+TitleStyle ActiveDown Colorset 19
+TitleStyle InactiveUp Colorset 10
+TitleStyle InactiveDown Colorset 10
+TitleStyle Inactive -- raised
+TitleStyle Active -- sunk
+
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 2
+BorderStyle -- raised
+
+AddButtonStyle All -- UseTitleStyle 
+AddButtonStyle All Active (Colorset 1) \
+			Inactive (Colorset 2)
+AddButtonStyle 1 Vector 5 15x45@1 85x45@1 85x55@0 15x55@0 15x45@1 
+
+AddButtonStyle 2 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+
+AddButtonStyle 4 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+
+Style * BorderWidth 4, HandleWidth 4
+Style * Handles
+
+Mouse 1		1	N	Popup FvwmWindowMenu
+Mouse 3		1	N	Close
+Mouse 3		2	M	Destroy
+Mouse 1		2	N	Maximize 100 100
+Mouse 3		2	N	Maximize 90 88
+Mouse 2		2	N	Maximize 0 100
+Mouse 3		4 	N	Thumbnail
+Mouse 1		4 	N	Thumbnail
+

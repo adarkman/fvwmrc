@@ -1,0 +1,106 @@
+
+Emulate Mwm
+####################################### Colorsets
+# Active window
+Colorset 1 fg white, bg #20a2e8, sh #04121b, fgsh #04121b, hi #0e415a
+# Inactive window 
+Colorset 2 fg gray60, bg #092a3b , sh #04121b, fgsh #04121b, hi #0e415a
+#, RootTransparent buffer, Tint #838183 80, IconAlpha 80
+
+# Active Title
+Colorset 19 fg white, bg #0f4d6e
+# Inactive Title
+Colorset 10 fg gray60, bg #092a3b
+
+SetEnv cs-menu-active 4
+SetEnv cs-menu-inactive 3
+# Menu base
+Colorset 3 fg white, bg #092a3b, fgsh black, sh #04121b, hi #0e515a
+#, RootTransparent, Tint black 50
+# Menu hilight
+Colorset 4 fg white, bg black, fgsh black, sh #04121b, hi #0e515a
+
+# Pager
+Colorset 7 fg white, bg #0f4d6e, RootTransparent, Tint #0f4d6e 0
+Colorset 9 fg white, bg #092a3b
+#, RootTransparent, Tint #104c58 0
+# Inactive window in pager / CDE
+#Colorset 5 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+#Colorset 5 fg white, bg #838183, sh black, hi #7f7f7f
+Colorset 5 fg white, bg #092a3b, sh #04121b, hi #0e415a , RootTransparent, Tint #092a3b 95
+Colorset 18 fg white, bg #092a3b, sh #04121b
+Colorset 21 fg white, bg #0f4d6e, sh #04121b
+
+# IconMan
+Colorset 11 fg white, bg black, RootTransparent, Tint black 50
+# Active IconMan
+Colorset 12 fg white, bg black
+
+# Icon title
+Colorset 6 fg white, bg blue, RootTransparent
+#, Tint #104c58 20
+
+# Title
+#Colorset 19 fg white, bg black
+
+SetEnv cs-panel-inactive 8
+# Panels
+Colorset 8 fg white, bg #104C58 , RootTransparent buffer
+Colorset 20 fg white, bg black
+#, Tint #838183 50
+
+MenuStyle * TrianglesSolid
+
+####################################### Titles/Borrders/Buttons
+TitleStyle LeftJustified Height 17
+TitleStyle ActiveUp Colorset 19
+TitleStyle ActiveDown Colorset 19
+TitleStyle InactiveUp Colorset 10
+TitleStyle InactiveDown Colorset 10
+TitleStyle Inactive -- flat
+TitleStyle Active -- flat
+
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 2
+BorderStyle -- raised
+
+#AddButtonStyle All -- UseTitleStyle flat
+#AddButtonStyle All Active (Colorset 19) \
+#			Inactive (Colorset 10)
+ButtonStyle reset
+ButtonStyle 1 Active Colorset 19 -- raised 
+ButtonStyle 1 Inactive Colorset 10 -- raised 
+ButtonStyle 2 Active Colorset 19 -- raised
+ButtonStyle 2 Inactive Colorset 10 -- raised 
+ButtonStyle 4 Active Colorset 19 -- raised
+ButtonStyle 4 Inactive Colorset 10 -- raised 
+AddButtonStyle 1 Vector 5 15x45@1 85x45@1 85x55@0 15x55@0 15x45@1 
+
+AddButtonStyle 2 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+
+AddButtonStyle 4 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+#ButtonStyle 1 ActiveUp Pixmap glass/close.png
+#ButtonStyle 1 ActiveDown Pixmap glass/close_press.png
+#ButtonStyle 1 InactiveUp Pixmap glass/close_inac.png
+#ButtonStyle 1 InactiveDown Pixmap glass/close_press.png
+#ButtonStyle 2 ActiveUp Pixmap glass/max.png
+#ButtonStyle 2 ActiveDown Pixmap glass/max_press.png
+#ButtonStyle 2 InactiveUp Pixmap glass/max_inac.png
+#ButtonStyle 2 InactiveDown Pixmap glass/max_press.png
+#ButtonStyle 4 ActiveUp Pixmap glass/min.png
+#ButtonStyle 4 ActiveDown Pixmap glass/min_press.png
+#ButtonStyle 4 InactiveUp Pixmap glass/min_inac.png
+#ButtonStyle 4 InactiveDown Pixmap glass/min_press.png
+
+Style * BorderWidth 4, HandleWidth 4
+Style * Handles
+
+Mouse 1		1	N	Popup FvwmWindowMenu
+Mouse 3		1	N	Close
+Mouse 3		2	M	Destroy
+Mouse 1		2	N	Maximize 100 100
+Mouse 3		2	N	Maximize 90 88
+Mouse 2		2	N	Maximize 0 100
+Mouse 3		4 	N	Thumbnail
+Mouse 1		4 	N	Thumbnail
+

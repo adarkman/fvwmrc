@@ -1,0 +1,807 @@
+####################################### Environment
+SetEnv FVWM_DIR $HOME/.fvwm
+SetEnv SCRIPTS_DIR $HOME/.fvwm/scripts
+
+####################################### Global Options
+ImagePath $HOME/bmp/fvwm:$HOME/bmp/fvwm/buttons:$HOME/bmp/icons/OS-L/22x22:$HOME/bmp/icons:/usr/share/icons/fvwm
+*FvwmScript: Path $[HOME]/.fvwm/scripts
+
+EWMHNumberOfDesktops 6
+# Left Right Top Bottom
+# CDE
+#EWMHBaseStruts 0 90 23 0
+# CDE shade
+#EWMHBaseStruts 0 0 0 0
+# With screen decor
+#EWMHBaseStruts 3 142 51 3
+# From fvwm-crystal
+#EWMHBaseStruts 0 68 34 34
+# CDE with Indicators
+#EWMHBaseStruts 0 68 0 88
+# With Indicators
+#EWMHBaseStruts 0 86 0 0
+#EWMHBaseStruts 0 0 24 0
+# Left IconBox
+EWMHBaseStruts 82 0 0 0
+
+DesktopSize 1x1
+
+#SnapGrid 10 10
+#SnapAttraction 5 All
+EdgeScroll 0 0
+SnapAttraction 20 SameType Screen
+#SnapAttraction All
+#SnapGrid 10 10
+
+IgnoreModifiers L25
+
+OpaqueMoveSize unlimited
+
+####################################### GlobalEnv
+#SetEnv SIMPLE_CONSOLE 'konsole --hide-menubar --profile gray '
+#SetEnv CONSOLE 'konsole --profile gray -e screen '
+#SetEnv TERMINAL 'konsole --profile gray -e screen '
+SetEnv SIMPLE_CONSOLE 'rxvt2 '
+SetEnv CONSOLE 'rxvt2 -e screen '
+SetEnv TERMINAL 'rxvt2 -e screen '
+######################################## GlobalStyle
+### 'State 10': Mark for tiling
+### 'State 11': windows ignored by M+Left, M+Right
+### 'State 12': Widgets 
+
+####################################### Themes
+##Read decor/Crystal/Theme.Darkman
+#Read themes/xp-trans.cf
+#Read themes/cde-warp.rc
+#Read themes/cde
+##Read themes/cde-warp-gray.rc
+##Read themes/cde-warp-darkgray.rc
+##Read themes/cde-warp-green.rc
+##Read themes/flat-blue.rc
+##Read themes/cde-warp-darkmoonlit.rc
+#Read themes/cde-digital.rc	# NC IB
+Read themes/cde-sand.rc	# Work
+##Read themes/e17-dark.rc
+##Read themes/bespin-metal.rc	# NC IB
+##Read themes/bespin-metal-dark.rc	# Work
+#Read themes/screen.rc
+#Read themes/glass.rc
+#Read themes/liquid.rc
+#Read themes/metal.rc
+#Read themes/next-bbx.rc
+#Read themes/skin.rc
+#Read themes/e17.rc
+#Read themes/matrix.rc
+##Read themes/irix.rc		# need colorsets for IconBox
+##Read themes/LCARS.rc		# need colorsets for IconBox
+##Read themes/Borg.rc       # NC IB
+##Read themes/DarkGray.rc   # Work
+#Read themes/DarkGray-transparent.rc 	# Work
+#Read themes/military.rc
+
+####################################### Colorsets
+##Read colorsets/CrystalZono.cs
+
+
+######################################## 
+#Style * Font xft:LucidaMACBold:Bold:Roman:size=8:encoding=iso10646-1:Shadow=1
+Style * Font Shadow=1:xft:CourierC:Regular:size=12:encoding=iso10646-1
+#Style * Font Shadow=0:xft:Cuprum:Bold:Roman:size=10:encoding=iso10646-1
+#Style * Font Shadow=1:xft:Terminator\ Cyr:Regular:Roman:size=6:encoding=iso10646-1
+#Style * IconFont Shadow=1:xft:LucidaGrande:Medium:Roman:size=7:encoding=iso10646-1
+#Style * IconFont Shadow=0:xft:LucidaGrande:Medium:Roman:size=7:encoding=iso10646-1
+Style * IconFont Shadow=1:xft:CourierC:Medium:Roman:size=10:encoding=iso10646-1
+Style * SloppyFocus
+#Style * ClickToFocus
+Style * FPFocusByFunctionWarpPointer, FPPassFocusClick
+#Style * !FPClickRaisesFocused
+Style * FPClickRaisesFocused
+Style * FPPassRaiseClick
+Style * FPGrabFocus
+Style * HilightColorset 1, Colorset 2
+#Style * IconTitleColorset 6, HilightIconTitleColorset 6, IconTitleRelief 1, IconBackgroundRelief 0, IconBackgroundPadding 0, NoIconTitle
+Style * IconTitleColorset 6, HilightIconTitleColorset 6, IconTitleRelief 1, IconBackgroundRelief 0, IconBackgroundPadding 0
+#Style * TitleAtLeft
+#Style * NoTitle
+# *** Top/Right
+#Style * IconBox 200x900-3+30, IconGrid 5 5, IconFill Top Right
+# *** Top/Left
+Style * IconBox 300x900+3+3, IconGrid 5 5, IconFill Top Left
+# *** Bottom/Left
+#Style * IconBox 900x200+105-5, IconGrid 5 5, IconFill Left Bottom
+#Style * IconBox 900x220+15-25, IconGrid 5 5, IconFill Left Bottom
+# Basic:
+#Style * IconBox 900x220+1-0@c, IconGrid 2 2, IconFill Left Bottom 
+# *** Bottom/Right
+#Style * IconBox 900x200-80-5, IconGrid 5 5, IconFill Right Bottom
+Style * ResizeOutline
+Style * MinOverlapPlacement
+Style * DecorateTransient, ResizeHintOverride
+Style * MwmButtons , MwmBorder, MwmDecor, MwmFunctions
+Style * IndexedWindowName
+Style * ExactWindowName
+#Style * NoIcon, !IconTitle
+Style * Icon, IconTitle
+
+####################################### Specific styles
+Style gnome-panel	NoTitle, BorderWidth 0, HandleWidth 0, Sticky, Layer 6
+
+
+#Style kicker		NoTitle, BorderWidth 0, HandleWidth 0, Sticky, Layer 6, Borders, NoDecorHint, NeverFocus
+Style kpager		NoTitle, BorderWidth 1, HandleWidth 1, Sticky, Layer 6, Borders, StaysOnTop
+Style FvwmPager		NoTitle, BorderWidth 0, HandleWidth 0, Sticky, Layer 0
+#Style FvwmPager		Title, BorderWidth 6, HandleWidth 6, Sticky, Layer 0, Borders, Handles
+#Style FvwmButtons	NoTitle, BorderWidth 1, HandleWidth 1, Sticky, Layer 6, StaysOnTop, WindowListSkip
+Style stickynotes*	NoTitle, BorderWidth 0, HandleWidth 0, Layer 0
+Style conky			Title, BorderWidth 0, HandleWidth 0, Sticky, Layer 0
+Style audacious		NoTitle, BorderWidth 0, HandleWidth 0
+Style sonar			NoTitle, Sticky, Layer 0
+#Style CDE-panel		NeverFocus, WindowListSkip, BorderWidth 2, HandleWidth 2, NoHandles, State 11
+Style CDE-panel		ClickToFocus, WindowListSkip, BorderWidth 0, HandleWidth 0, NoHandles, State 11, NoTitle, NoIconTitle, Sticky
+#Style urxvt			TitleAtLeft
+Style IconFloor		NoTitle, BorderWidth 0, HandleWidth 0, Sticky, Layer 0
+Style fvwm_menu 	NoButton 2,NoButton 4, NoHandles, !Borders, Sticky, UsePPosition, Sticky
+Style noatun    	!Title, !Borders, !Handles
+Style ?notes		WindowListSkip
+Style ftray			NoTitle, BorderWidth 2, HandleWidth 2, Layer 6, StaysOnTop, Sticky, NoHandles
+Style fterm			Title, BorderWidth 6, HandleWidth 6, Layer 6, StaysOnTop, Sticky, NoHandles, WindowListSkip, StartIconic, NoIconTitle
+#### DO NOT TOUCH FOCUS POLICY - for working XBar (now disabled - see commented line)
+Style plasma*		NoTitle, BorderWidth 0, HandleWidth 0, Sticky, NoHandles, WindowListSkip, \
+					!FPGrabFocus
+					#, NeverFocus, !FPPassFocusClick, !FPPassRaiseClick
+###
+Style krunner*		Title, Sticky, NoHandles, !borders, WindowListSkip
+Style xfce4-panel 	NoTitle, BorderWidth 0, HandleWidth 0, NoHandles
+Style kmail			StartsOnDesk 1
+Style ktorrent		StartsOnDesk 1, StartsOnScreen 0
+Style akregator		StartsOnDesk 1, StartsOnScreen 0
+Style kontact		StartsOnDesk 1, StartsOnScreen 0
+Style DigitalClockScreenlet.py 	NoTitle, Layer 0
+Style java*			Lenience
+Style *NetBeans*	Lenience
+Style systemsettings 		StartsOnScreen 0, StartsOnDesk 5
+Style St80			Lenience
+Style knotes 		Layer 1, Sticky, BorderWidth 0,!Handles,NoTitle
+Style MPlayer 		StartsOnScreen 0
+Style systemsettings 		StartsOnScreen 0, StartsOnDesk 5
+Style Skype 		StartsOnScreen 0, StartsOnDesk 1
+Style konqueror		StartsOnScreen 0
+Style top 			NoTitle, StartsOnScreen 0, BorderWidth 1, HandleWidth 1, NoHandles, Layer 2, State 11, State 12, Sticky, WindowListSkip, NoIconTitle
+Style stalonetray 	BorderWidth 5, HandleWidth 5, WindowListSkip, CirculateSkip
+Style KShutDown 	PositionPlacement Center
+
+Style FvwmBanner	NoTitle
+Style FvwmScript 	NoTitle, NoHandles, BorderWidth 0, HandleWidth 0,Layer 2, WindowListSkip, Sticky, State 11, State 12, StartsOnScreen 0, NoIconTitle
+Style htop 			NoTitle, NoHandles, BorderWidth 0, HandleWidth 0,Layer 2, WindowListSkip, Sticky, State 11, State 12, StartsOnScreen 0, NoIconTitle
+Style IconManBox2 	WindowListSkip, State 11, StaysOnBottom, NeverFocus, !MwmBorder, BorderWidth 0, HandleWidth 0
+Style IconBox 		WindowListSkip, State 11, !MwmBorder, BorderWidth 0, HandleWidth 0
+Style IconBoxLeft	WindowListSkip, State 11, StaysOnTop, NeverFocus, MwmBorder, BorderWidth 2, HandleWidth 2, UseDecor IconboxDecor, Colorset 16
+
+Style wmgtemp		WindowListSkip, State 11, StaysOnTop, NeverFocus, NoTitle, BorderWidth 0, HandleWidth 0, Sticky
+
+####################################### Menus
+MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
+#MenuStyle * Font Shadow=2:xft:LucidaGrande:Bold:Roman:size=8:encoding=10646-1
+#MenuStyle * Font Shadow=0:xft:LucidaGrande:Bold:Roman:size=8:encoding=10646-1
+MenuStyle * Font Shadow=1:xft:CourierC:Regular:Roman:size=11:encoding=10646-1
+#MenuStyle * Hilight3DThin
+MenuStyle * TitleUnderlines1, SeparatorsShort, HilightBack
+#MenuStyle * TrianglesRelief, !TrianglesUseFore
+MenuStyle * PopupOffset -3 100
+MenuStyle * Hilight3DThickness -1
+MenuStyle * VerticalItemSpacing 5 5, VerticalTitleSpacing 5 10
+MenuStyle * ItemFormat "%s  %i  %l %> "
+MenuStyle * BorderWidth 1
+MenuStyle * AnimationOff
+CopyMenuStyle * WindowMenuStyle
+MenuStyle WindowMenuStyle ItemFormat "%i %l %> "
+ChangeMenuStyle WindowMenuStyle FvwmWindowMenu
+ChangeMenuStyle WindowMenuStyle MoveToDeskMenu
+
+DestroyMenu Processes
+AddToMenu Processes Processes title
++ DynamicPopupAction Function GetProcessList
+
+DestroyFunc GetProcessList
+AddToFunc GetProcessList
++ I DestroyMenu recreate Processes
++ I AddToMenu Processes Processes title
++ I PipeRead 'echo "`$HOME/bin/fvwm-process-menu`"'
+
+DestroyModuleConfig FvwmBanner *
+*FvwmBanner: Pixmap /home/darkman/bmp/Darkman/CDE/CDE.xpm
+*FvwmBanner: Timeout 8
+AddToFunc InitFunction 
++ I Module FvwmBanner
+
+DestroyMenu MenuFvwmWindowOps
+AddToMenu   MenuFvwmWindowOps "$[gt.Window Ops]" Title
++ "$[gt.&Move]"              Move
++ "$[gt.&Resize]"            Resize
++ "$[gt.R&aise]"             Raise
++ "$[gt.&Lower]"             Lower
++ "$[gt.(De)&Iconify]"       Iconify
++ "$[gt.(Un)&Stick]"         Stick
++ "$[gt.(Un)Ma&ximize]"      Maximize
++ "" Nop
++ "$[gt.&Close]"             Close
++ "$[gt.&Destroy]"           Destroy
+
+
+DestroyFunc GetProcInfo
+AddToFunc GetProcInfo
++ I DestroyMenu recreate $0
++ I AddToMenu $0
++ I Piperead 'echo "`$HOME/bin/get-proc-info $0`"'
+
+DestroyMenu FvwmMenu
+AddToMenu	FvwmMenu
++	"&Edit FVWM2 Config"%apps/Fan.png%		Exec exec gvim $HOME/.fvwm/config
++	""										Nop
++	"Identify"%apps/Font\ Book.png%			Module FvwmIdent
++	"&Console"%apps/exec.png%				Module FvwmConsole
+
+DestroyMenu MenuMedia
+AddToMenu MenuMedia
++	"&Images"%apps/G-Ball_Photoshop7.png%				Exec exec gwenview
++	"Gimp"%apps/gimp2_0.png%							Exec exec gimp		
++	"&Music"%apps/Britney.png%							Exec exec ${TERMINAL} -S Media ncmpcpp
++	"Video"%apps/Toolbar\ _\ Movies.png%				Exec exec smplayer
++	"Texts"%apps/Oyez\!\ Read\ me.png%					Exec exec ob
++	"&Vector"%apps/kpaint.png%							Exec exec inkscape
++	""													Nop
++	"K3B"%devices/cdrom_mount3.png%						Exec exec k3b
++	""													Nop
++	"Color selection"%apps/LimeWire.png%				Exec exec kcolorchooser
++	"XMag"%apps/Search.png%								Exec exec xmag
++	"&Wallpapers"%apps/iPhoto.png%							Exec exec nitrogen
+
+DestroyMenu MenuGames
+AddToMenu MenuGames
++	"Neverwinter nights"%nwnicons/48x48/nwn-alt2-48x48.png%	Exec xnwn
++	"Heroes III"%misc/48x48/coordinates.png%			Exec /opt/Games/Heroes3/heroes3
++	""													Nop
++	"DosBox"%apps/gkrellm.png%							Exec exec dosbox
+
+DestroyMenu MenuSystem
+AddToMenu MenuSystem
++	"KDE4 System &Settings "%apps/Cards.png%				Exec exec systemsettings
++	""													Nop
++	"VmWare console"%misc/22x22/vmware.png%				Exec exec sudo /opt/vmware/server/console/bin/vmware-server-console
++	"VmWare player"%misc/22x22/vmware.png%				Exec exec vmplayer
++	"Remote access"%misc/22x22/vnc.png%					Exec exec krdc
+#+	"VmWare @ ЮГ почтовик"%devices/Airport.png%			Exec exec $[HOME]/bin/rxvt2 -title VmWare@gw -e ssh -X 192.168.1.47 'sudo vmware'
++	"VirtualBox"%devices/Airport.png%					Exec exec VirtualBox
++	""													Nop
++	"Iso2Usb"%apps/k3b2.png%							EXec unetbootin
++	""													Nop
++ 	"Firewall Builder"%misc/22x22/firewall.png%			Exec fwbuilder
++	""													Nop
++	"Powersave governor"%apps/gkrellm2.png%				Exec exec sudo /home/darkman/bin/set-powersave
++	"Ondemand governor"%apps/gkrellm2.png%				Exec exec ~darkman/bin/set-freq ondemand
++	"Performance governor"%apps/gkrellm2.png%			Exec exec ~darkman/bin/set-freq performance
++	""													Nop	
++ 	"KDE &Logout"%actions/cancel.png%					Exec exec kshutdown
+#+	"Hibernate"%misc/48x48/habano.png%					Exec exec sudo hibernate
+
+DestroyMenu MenuInet
+AddToMenu MenuInet
++	"&Konqueror"%apps/konqueror2.png%					Exec exec konqueror
+#+	"KMail"%apps/kontact.png%							Exec exec kmail
++	"&Mail"%apps/kontact.png%							Exec exec ${TERMINAL} -S Talks mutt
++	"Jabber/ICQ"%apps/Alert\ Note.png%					Exec exec tkabber
++	"R&SS Reader"%apps/kdict.png%						Exec exec kontact
++	"&Torrents"%filesystems/Drop\ Box.png%				Exec exec ktorrent
++	"&WiFi"%devices/Network.png%						Exec exec ${SIMPLE_CONSOLE} -e wicd-curses
++	""													Nop	
++	"&Firefox"%apps/firebird_2_01.png%					Exec exec firefox -P default -new-instance
++	"I&2P"%apps/xkill3.png%								Exec exec firefox -P I2P -new-instance -private
++	"&Paranoic browser"%apps/JackOLantern.png%			Exec exec firefox -P paranoic -new-instance -private
++	""													Nop	
++	"Opera"%apps/konqueror.png%							Exec exec opera
++	"&Google Chrome"%apps/konqueror3.png%				Exec exec google-chrome-stable
+
+DestroyMenu MenuVW
+AddToMenu MenuVW "Images" Title
++ 	DynamicPopupAction PipeRead $[HOME]/bin/vw-fvwm-menu
+
+DestroyMenu MenuDevel
+AddToMenu MenuDevel
++	"VisualWorks Smalltalk"%misc/22x22/scroll.png%		Popup MenuVW
++	"KDevelop"%misc/22x22/Interface\ Builder.png%		Exec exec kdevelop
++	"SVN client"%apps/thai\ hand.png%		Exec exec kdesvn
++	""													Nop
++ 	"Qt &Creator"%misc/22x22/kwrite3.png%				Exec exec qtcreator
++	"&Qt Documentation"%misc/22x22/Dictionary.png%		Exec exec assistant
++	"Qt &Designer"%apps/kontour.png%					Exec exec designer
++ 	""													Nop
++	"IDEA"%misc/22x22/Instruments.png%					Exec exec /opt/IDEA/bin/idea.sh
++	"Netbeans"%misc/22x22/netbeans.png%					Exec exec netbeans-7.0
++	"Java Documentation"%misc/22x22/Dictionary.png%		Exec exec java -Dawt.useSystemAAFontSettings=lcd -jar -Xmx100M "/home/darkman/.globaldocs/ins/globaldocs.jar"
++	""													Nop
++	"&Emacs"%apps/capsule.png%							Exec exec emacs
++	"JXplorer"%apps/Certificate.png%					Exec exec jxplorer
++	"LDAP Editor"%apps/colors.png%						Exec exec luma
++ 	"SHIFF+ Pro"%apps/Applet\ Launcher.png%				Exec exec /opt/WindRiver/SniffPro/bin/sniff
++	"PostgreSQL access"%apps/kmysqladmin.png%			Exec exec pgadmin3
+
+DestroyMenu MenuDocs
+AddToMenu MenuDocs
++	"Notes"%apps/Certificate.png%						Exec exec notecase
++	"StarDict"%apps/kdict2.png%							Exec exec stardict
++	"OpenOffice"%apps/inkscape.png%						Exec exec ooffice3
++	"Dia"%apps/kontour.png%								Exec exec dia
+
+# Создание полностью динамического меню дисков
+DestroyFunc CreateDiskMenu
+AddToFunc CreateDiskMenu
++ I DestroyMenu MenuDisk
++ I AddToMenu MenuDisk
++ I AddToMenu MenuDisk	"DOC's"%filesystems/Faxes.png%						Exec exec dolphin ~/DOC
++ I AddToMenu MenuDisk	"Documents"%filesystems/Fonts\ 2.png%				Exec exec dolphin ~/Documents
++ I AddToMenu MenuDisk	"BMP's"%filesystems/Pictures\ 1.png%				Exec exec dolphin ~/bmp
++ I AddToMenu MenuDisk	"Text's"%filesystems/Keyboard\ Layouts.png%			Exec exec dolphin ~/Texts
++ I AddToMenu MenuDisk	"Music"%filesystems/Music\ 1.png%					Exec exec dolphin /opt/Music
++ I AddToMenu MenuDisk	"Video"%filesystems/Movies\ 1.png%					Exec exec dolphin /opt/Video
++ I AddToMenu MenuDisk	""													Nop
++ I AddToMenu MenuDisk	"Home"%devices/hardware.png%						Exec exec dolphin ~/
++ I AddToMenu MenuDisk	""													Nop
++ I AddToMenu MenuDisk	"Samba"%devices/iNet_Drive.png%						Exec exec dolphin smb:/
++ I AddToMenu MenuDisk	""													Nop
++ I AddToMenu MenuDisk	"&Network drives"%devices/iNet_Drive.png%			Popup NetworkDrivesMenu
+
+DestroyMenu NetworkDrivesMenu
+AddToMenu NetworkDrivesMenu
++ DynamicPopupAction PipeRead '$[SCRIPTS_DIR]/MountMusic@gw NetworkDrivesMenu'
+
+DestroyMenu MenuRLogins
+AddToMenu MenuRLogins
++	"171"%devices/Airport.png%						Exec exec rxvt2 -title 171 -e ssh -X 95.67.10.171
++	"172"%devices/Airport.png%						Exec exec rxvt2 -title 172 -e ssh -X 95.67.10.172
+
+DestroyMenu MainMenu
+AddToMenu	MainMenu	"Hell Design"	Title
++	"&Terminal"%devices/Computer\ _\ PowerBook.png%					Exec exec $CONSOLE
++	"Simple Te&rminal"%devices/Computer\ _\ PowerBook.png%			Exec exec $SIMPLE_CONSOLE
++	"KOI8 terminal"%devices/Computer\ _\ PowerBook\ _\ Off.png%		Exec exec koi-term
++	"ViM"%apps/cron.png%											Exec exec gvim
++	""																Nop
++	"D&evelopment"%apps/Bonsai.png%									Popup MenuDevel
++	"Documents"%apps/acroreadb.png%									Popup MenuDocs
++	"&Network"%apps/gftp.png%										Popup MenuInet
++	"&Media"%apps/Adobe\ Photoshop\ 7.0.png%						Popup MenuMedia
++	""																Nop
++	"Games"%apps/gnome_chess.png%									Popup MenuGames
++	""																Nop
+#+	"Processes"%apps/Exclamation.png%								Popup Processes
+#+	""																Nop
++	"&Files"%devices/hdd_mount.png%									Popup MenuDisk
++	DynamicPopupAction CreateDiskMenu
++	"Remote logins"%devices/Audio\ MIDI\ Setup.png%					Popup MenuRLogins
++	""																Nop
++	"&System"%apps/kmenu.png%										Popup MenuSystem
++	"F&vwm2"%apps/Burn.png%											Popup FvwmMenu
+
+DestroyMenu MoveToDeskMenu
+AddToMenu MoveToDeskMenu	"Move to desk"	Title
++	"Desk &1"%OS-L/16x16/actions/openterm.png%						MoveToDesk 0 0
++	"Desk &2"%OS-L/16x16/apps/konqueror2.png%						MoveToDesk 0 1
++	"Desk &3"%OS-L/16x16/apps/kwrite2.png%							MoveToDesk 0 2
++	"Desk &4"%OS-L/16x16/apps/kruler.png%							MoveToDesk 0 3
++	"Desk &5"%OS-L/16x16/apps/kuickshow.png%						MoveToDesk 0 4
++	"Desk &6"%OS-L/16x16/apps/kcontrol3.png%						MoveToDesk 0 5
+
+DestroyMenu FvwmWindowMenu
+AddToMenu FvwmWindowMenu
++ "$[gt.&Move]"%mini.move1.xpm%              Move
++ "$[gt.&Resize]"%mini.resize3.xpm%          Resize
++ "$[gt.R&aise]"%mini.raise2.xpm%            Raise
++ "$[gt.&Lower]"%mini.lower2.xpm%            Lower
++ "" Nop
++ "$[gt.On &Top]"%Borg/layer-top.svg:16x16%				 Layer 0 11
++ "$[gt.&Default]"%Borg/layer-put.svg:16x16%			 Layer default
++ "" Nop
++ "$[gt.&Iconify]"%mini.iconify1.xpm%      	 Thumbnail
++ "$[gt.(Un)&Stick]"%mini.stick.xpm%         Stick
++ "$[gt.(Un)Ma&ximize]"%mini.maximize1.xpm%  Maximize
++ "" Nop
++ "Go to &Desk"		Popup MoveToDeskMenu
++ "" Nop
++ "$[gt.&Close]"%mini.cross.xpm%             Close
++ "$[gt.&Destroy]"%mini.crosbone.xpm%        Destroy
+
+####################################### Thumbnail
+SetEnv THUMB_DIR $[HOME]/bmp/.fvwm
+#SetEnv THUMB_SIZE 120x100
+SetEnv THUMB_SIZE 60x90
+
+# В текущий момент используется FvwmIconMan (см. iconbox/IconMan2), поэтому добавлен
+# NoIcon, чтобы убрать иконки с десктопа, FvwmIconMan использует MiniIcon, поэтому
+# EWMHMiniIconOverride
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
++ I Raise
++ I Piperead "xwd -silent -id $[w.id] | \
+	convert -resize $[THUMB_SIZE] -frame 1x1 -mattecolor black \
+  	-quality 0 xwd:- png:$[THUMB_DIR]/icon.tmp.$[w.id].base.png"
+#+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/Borg/icon-base-76.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
+#+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/Irix/icon-base.xpm $[THUMB_DIR]/icon.tmp.$[w.id].png"
+#+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/bespin/icon-back.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
+#+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/bespin/Dark3btn.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
++ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/Irix/cde-icon-base.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
++ I Exec exec FvwmCommand 'WindowId $[w.id] WindowStyle IconOverride, EWMHMiniIconOverride, Icon $[THUMB_DIR]/icon.tmp.$[w.id].png, StaysOnBottom, MiniIcon $[THUMB_DIR]/icon.tmp.$[w.id].png' # NoIcon
++ I All (CurrentPage, Iconic) PlaceAgain Icon
++ I Iconify
++ I Next (CurrentPage, !Iconic) Focus
+#+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/LCARS/icon-base.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
+
+DestroyFunc DeThumbnail
+AddToFunc DeThumbnail
+#+ I DestroyWindowStyle
+#+ I Exec rm -f $[THUMB_DIR]/icon.tmp.$[w.id].*
++ I Iconify false
++ I WarpToWindow 10 10
++ I Focus
++ I All (CurrentPage, Iconic) PlaceAgain Icon
+
+####################################### Key/Mouse bindings
+DestroyFunc TransitMove
+AddToFunc TransitMove
++ I Focus
++ I Raise
++ M PipeRead 'transset-df --min 0.4 -i $[w.id] 0 > /dev/null; echo Nop'
++ M Move
++ M PipeRead 'transset-df --min 0.4 -i $[w.id] 1 > /dev/null; echo Nop'
+
+Mouse 1		T	N	TransitMove
+Mouse 1		W	M	TransitMove
+Mouse 3		T	N	Popup MoveToDeskMenu
+Mouse 2		T	M	WindowShade
+Mouse 2		T	N	Focus
+Mouse 1		R	N	Menu MainMenu
+Mouse 2		R	N	WindowList
+Mouse 3		W	M	Raise
+Mouse 1		I	N	DeThumbnail
+Mouse 3		WT	C	Resize
+
+Mouse 4 	R 	N 	GotoDesk -1 0 5
+Mouse 5		R	N	GotoDesk 1 0 5
+
+Mouse 3   	R   N   WindowList TitleForAllDesks NoIcons Alphabetic ShowScreen Raise
+
+#Mouse 1		1	N	Popup FvwmWindowMenu
+#Mouse 3		1	N	Close
+#Mouse 3		2	M	Destroy
+#Mouse 1		2	N	Maximize 100 100
+#Mouse 3		2	N	Maximize 90 88
+#Mouse 2		2	N	Maximize 0 100
+#Mouse 3		4 	N	Thumbnail
+#Mouse 1		4 	N	Thumbnail
+
+DestroyFunc RaiseFocus
+AddToFunc RaiseFocus
++ I	Focus
++ I Raise
++ I WarpToWindow 30p 30p
+
+DestroyFunc NextWindow
+AddToFunc NextWindow
++ I	Next (!Iconic, !State 11, CurrentDesk, CurrentScreen) RaiseFocus
+
+DestroyFunc PrevWindow
+AddToFunc PrevWindow
++ I	Prev (!Iconic, !State 11, CurrentDesk, CurrentScreen) RaiseFocus
+
+DestroyFunc NextWindowGlobal
+AddToFunc NextWindowGlobal
++ I	Next (!Iconic, !State 11, CurrentDesk, !CurrentScreen) RaiseFocus
+
+DestroyFunc PrevWindowGlobal
+AddToFunc PrevWindowGlobal
++ I	Prev (!Iconic, !State 11, CurrentDesk, !CurrentScreen) RaiseFocus
+
+Key Right	A	M	NextWindow
+#Key q		A	M	NextWindow
+#Key q 		A	M	WindowList (!Iconic, CurrentDesk) Function RaiseFocus
+Key Left	A	M	PrevWindow
+Key Up		A	M	NextWindowGlobal
+Key Down	A	M	PrevWindowGlobal
+Key Menu	A	N	WindowList (Iconic, CurrentDesk, CurrentScreen) root 5p 30p Icons Alphabetic ShowScreen Function DeThumbnail
+Key grave   A   M   WindowList TitleForAllDesks NoIcons Alphabetic ShowScreen Raise 
+Key r		A	M	All (CurrentPage, Iconic) PlaceAgain Icon
+Key d		A	M	All (CurrentPage, !Iconic, !Sticky) Thumbnail
+Key r		W	M	Resize
+Key m		W	M	Move
+Key s		W	SM	Stick
+# Move window to center of screen (50% of screen
+# poition minus 50% of widow size).
+Key c		W	S4	Move screen c 50-50w 50-50w
+
+# Move to specific screen in multihead configuration
+# Mod4 = Super_L == Win key
+Key 1		W	4	MoveToScreen 0
+Key 2		W  	4	MoveToScreen 1
+
+Key	KP_End		A	SM	Restart
+
+Key c		A	SM	Module FvwmConsole
+Key i		A	SM	Module FvwmIdent
+
+
+
+DestroyFunc MaxAndMove
+AddToFunc MaxAndMove
++ I Maximize 90 100
++ I ResizeMoveMaximize keep keep -0 keep
+
+Key a		WT	SC	Maximize 92 95 
+Key a 		WT	SM	Maximize 0 100 
+#Key a		WT	M	Maximize 1190p 97
+Key a		WT	M	Maximize 100 100
+#Key f		W	M	MaxAndMove
+Key f		WT	M	Maximize ewmhiwa 100 100
+Key w		WT	M	Close
+Key e		WT	M	Thumbnail
+#Key e		W	M	Iconify
+Key Escape	WT	M	Menu FvwmWindowMenu
+Key g		WT 	M	Move
+Key r		WT 	M	Resize
+
+DestroyFunc CenterWindow
+AddToFunc   CenterWindow
++ I ThisWindow PipeRead "echo Move screen c \
+	+$(( $[vp.width]/2-$[w.width]/2 ))p \
+	+$(( $[vp.height]/2-$[w.height]/2 ))p"
+
+Key KP_Next		W	M	Move -88p -0p
+Key KP_Prior	W	M	Move -88p +0p
+Key KP_Home		W	M	Move 0p +0p
+Key KP_End		W	M	Move 0p -0p
+Key KP_Up		W	M	Move w+0 +0p
+Key KP_Down		W	M	Move w+0 -0p
+Key KP_Left		W	M	Move 0p w+0
+Key KP_Right	W	M	Move -88p w+0
+Key KP_Insert	W	M	WarpToWindow 30p 30p
+Key KP_Insert	1	M	WarpToWindow 30p 30p
+Key	c			W	S4	CenterWindow
+Key l			WT	S4	Move screen c -0p w+0
+Key h			WT	S4	Move screen c +0p w+0
+Key i			WT	S4	Move screen c +0p +0p
+Key p			WT	S4	Move screen c -0p +0p
+Key m			WT	S4	Move screen c -0p -0p
+
+Key 1		A	M	Desk 0 0
+Key 2		A	M	Desk 0 1
+Key 3		A	M	Desk 0 2
+Key 4		A	M	Desk 0 3
+Key 5		A	M	Desk 0 4
+Key 6		A	M	Desk 0 5
+#Key Up		A	M	GotoPage 0 0
+#Key Down	A	M	GotoPage 0 1
+
+Key 1		W	SM	MoveToDesk 0 0
+Key 2		W	SM	MoveToDesk 0 1
+Key 3		W	SM	MoveToDesk 0 2
+Key 4		W	SM	MoveToDesk 0 3
+Key 5		W	SM	MoveToDesk 0 4
+Key 6		W	SM	MoveToDesk 0 5
+
+
+DestroyFunc MRT
+AddToFunc MRT
++ I Maximize ewmhiwa True $0 $1
++ I Move screen c $2 $3
+
+Key p		W	SC	MRT 49 49 -0 +0
+Key m		W	SC	MRT 49 49 -0 -0
+Key j		W	SC	MRT 50 100 +0 +0
+Key l		W	SC	MRT 50 100 -0 +0
+
+
+DestroyFunc IconifyTerm
+AddToFunc IconifyTerm
++ I All ($0) Iconify On
++ I Current RaiseFocus
++ I Break
+
+DestroyFunc UnIconifyTerm
+AddToFunc UnIconifyTerm
++ I All ($0) Iconify Off
++ I All ($0) RaiseFocus
+
+DestroyFunc ShowOrHideTerm
+AddToFunc ShowOrHideTerm
++ I ThisWindow ($0) IconifyTerm $0
++ I ThisWindow (!0) UnIconifyTerm $0
++ I NoWindow UnIconifyTerm $0
+
+DestroyFunc HideCDE
+AddToFunc HideCDE
++ I All (CDE-panel, !Iconic) Raise
+#+ I All (CDE-panel, !Iconic) Thumbnail
++ I TestRc (Match) Break
++ I All (CDE-panel, Iconic) DeThumbnail
+
+Key f12		A	N	HideCDE
+Key f11		A	N	ShowOrHideTerm fterm
+Key f1		A	M	Menu MainMenu root 5p 30p TearOffImmediately
+Key f3		A	M	Exec exec ksysguard
+
+DestroyFunc RunOrRaise
+AddToFunc RunOrRaise
++ I All ($0) DeThumbnail
++ I All ($0) RaiseFocus
++ I TestRc (NoMatch) Exec exec $1
+
+Key grave	A	4	RunOrRaise dolphin dolphin
+#Key XF86Tools	A	N	/usr/local/bin/TrackpointSwitch
+
+DestroyFunc LayerIconify
+AddToFunc LayerIconify
++ I Layer $0 $1
++ I Iconify $2
+
+DestroyFunc RaiseOrLowerWidgets
+AddToFunc RaiseOrLowerWidgets
++ I All (State 12, Layer 10) LayerIconify 0 2 true
++ I TestRc (Match) Break
++ I All (State 12, Layer 2) LayerIconify 0 10 false
+
+Key d		A	S4	RaiseOrLowerWidgets
+
+####################################### Tiling
+DestroyFunc TileResizeMove
+AddToFunc TileResizeMove
++ I Maximize True $0 $1
++ I Move screen c $2 $3
+
+DestroyFunc Mark4Tiling
+AddToFunc Mark4Tiling
++ I State 10 True
++ I Stick True
++ I WindowStyle NoTitle
++ I Layer 0 10
+
+DestroyFunc UnMark4Tiling
+AddToFunc UnMark4Tiling
++ I State 10 False
++ I Stick False
++ I WindowStyle !NoTitle
++ I Layer default
+
+DestroyFunc TilingMark
+AddToFunc TilingMark
++ I Current (State 10) UnMark4Tiling
++ I TestRc (Match) Break
++ I Current (!State 10) Mark4Tiling
+
+DestroyFunc StartTile
+AddToFunc StartTile
++ I All UseStack (CurrentScreen, State 10, CurrentDesk) Exec $[HOME]/.fvwm/scripts/SaveList $[w.id]
++ I PipeRead $[HOME]/.fvwm/scripts/Tile
+
+DestroyFunc ShowOrHideTiled
+AddToFunc ShowOrHideTiled
++ I All (State 10, !Iconic) Iconify on
++ I TestRc (Match) Break
++ I All (State 10, Iconic) Iconify off
+
+DestroyFunc RaiseOrLowerTiled
+AddToFunc RaiseOrLowerTiled
++ I All (State 10, Layer 10) Layer 0 3
++ I TestRc (Match) Break
++ I All (State 10, !Layer 10) Layer 0 10
+
+# Дополнительно смотри ~/.xbindkeysrc
+Key	m	WT	4	TilingMark
+Key a	A	4	ShowOrHideTiled
+Key	a	A	S4	RaiseOrLowerTiled
+ 
+####################################### Global FvwmEvent
+DestroyFunc RaiseTray
+AddToFunc RaiseTray
++ I ThisWindow ("xfce4-panel") Raise
+
+DestroyFunc StartupPlacement
+AddToFunc StartupPlacement
++ I ThisWindow (wmgtemp) Move -0 +85
+
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: enter_window RaiseTray
+*FvwmEvent: add_window StartupPlacement
+
+####################################### FvwmIdent
+*FvwmIdent: Colorset $[cs-window-active]
+
+####################################### Animation
+*FvwmAnimate: Color DarkCyan
+*FvwmAnimate: Delay 15
+*FvwmAnimate: Iterations 50
+*FvwmAnimate: Twist 5
+*FvwmAnimate: Width 3
+*FvwmAnimate: Effect Zoom3D
+
+####################################### Indicators
+Read ButtonsConfig
+
+####################################### Indicators 2
+DestroyModuleConfig FvwmInd: *
+*FvwmInd: Colorset $[cs-panel-inactive]
+*FvwmInd: Columns 1                                                                   
+*FvwmInd: Font None                                                               
+*FvwmInd: Frame 0                                                                            
+#*FvwmInd: Geometry 64x448-0+276
+*FvwmInd: Geometry 64x456-0-0
+*FvwmInd: Padding 0 0                                  
+*FvwmInd: Rows 7
+
+*FvwmInd: (1x1+0+0, Swallow (UseOld) wmhdplop "Exec exec wmhdplop --bigfont=comic/10")
+*FvwmInd: (1x1+0+1, Swallow (UseOld) wmforkplop "Exec exec wmforkplop")
+*FvwmInd: (1x1+0+2, Swallow (UseOld) wmnd "Exec exec wmnd -i br0")
+*FvwmInd: (1x1+0+3, Swallow (UseOld) wmsmixer "Exec exec wmsmixer -s")
+#*FvwmInd: (1x1+0+4, Swallow (UseOld) aquarium "Exec exec sherman")
+#*FvwmInd: (1x1+0+4, Swallow (UseOld) wmweather "Exec exec wmweather -m -s UKKK")
+*FvwmInd: (1x1+0+4, Swallow (UseOld) wmmon+smp "Exec exec wmmon+smp")
+*FvwmInd: (1x1+0+5, Swallow (UseOld) wmsysmon "Exec exec wmsysmon")
+*FvwmInd: (1x1+0+6, Swallow (UseOld) wmbattery "Exec exec wmbattery")
+#*FvwmInd: (1x1+0+5, Swallow (UseOld) wmfire "Exec exec wmfire")
+
+####################################### Pager
+Read PagerConfig
+
+####################################### Panel
+#Read CDE-short
+Read CDE-panel.cde
+
+####################################### Advanced taskbar
+Read iconbox
+
+####################################### Tray
+Read tray.rc
+
+####################################### Fast terminal
+Read fterm.rc
+
+####################################### Screen Decor
+#Read TopLine
+####################################### Startup
+AddToFunc StartFunction 
++ I Module FvwmCommandS
+#+ I Module FvwmAnimate
++ I Module FvwmEvent
+#+ I Module FvwmButtons FvwmInd
++ I Module FvwmButtons CDE-panel
+#+ I Module FvwmButtons IconBox
++ I SendToModule IconBox PressButton IconsButton
+#+ I Module FvwmButtons ftray
++ I Module FvwmButtons fterm
+#+ I Module FvwmButtons FvwmButton-CenterPanel
+#+ I Module FvwmButtons PagerPanel2
+#+ I Exec exec /usr/lib/misc/xscreensaver/sonar -font 5x7 -ping $HOME/.ssh/known_hosts -geometry 250x250+0+0
+#+ I Exec exec xcompmgr -c -C
+#+ I Exec exec Esetroot ~/bmp/back/wallpapers21/background.jpeg
+#+ I Exec exec nitrogen --restore
+#+ I Exec exec krunner
+#+ I	Module FvwmScript Empidy
+#+ I	Module FvwmScript Kalende
+#+ I	Module FvwmScript Memento
+#+ I Exec exec $HOME/bin/rxvt2 -fg black -name top -geometry 100x40+90+30 -e htop
+#+ I Exec exec stalonetray
+#+ I LayerIconify 0 2 true
+#+ I HideCDE
+#+ I Module FvwmButtons IconBoxLeft
+#+	I	Module FvwmScript DriveInn
+#+ I	Module FvwmPager 0 5
+#+ I Module FvwmButtons TopLine
+#+ I Module FvwmButtons UpLine
+#+ I Module FvwmButtons BottomLine
+#+ I Module FvwmButtons LeftLine
+#+ I Module FvwmButtons RightLine
+#+ I Module FvwmButtons IconLine
+#+ I Module FvwmButtons IconFloor
+#+ I Module FvwmButtons WinTitle
+
+#AddToFunc ExitFunction
+#+ I Exec exec killall sonar
+#+ I Exec exec killall xcompmgr
+

@@ -1,0 +1,128 @@
+
+DestroyModuleConfig FvwmIconBox: *
+
+*FvwmIconBox: Colorset 5
+*FvwmIconBox: IconColorset 6
+*FvwmIconBox: Font none
+*FvwmIconBox: Placement Left Top
+#*FvwmIconBox: UseSkipList
+*FvwmIconBox: Geometry 6x1+0-20
+*FvwmIconBox: MaxIconSize 128x90
+#*FvwmIconBox: SetWMIconSize
+*FvwmIconBox: "*" -
+
+DestroyModuleConfig IconMan: *
+
+*IconMan: Colorset 17
+*IconMan: IconColorset 1
+*IconMan: FocusAndSelectColorset 6
+*IconMan: FocusColorset 6
+#*IconMan: MaxButtonWidth 500
+*IconMan: ManagerGeometry 1x1
+#*IconMan: ButtonGeometry 120x120
+*IconMan: DontShow State 11, State 10
+*IconMan: DrawIcons true
+*IconMan: ReliefThickness 0
+*IconMan: FocusButton sunkedge
+*IconMan: FocusAndSelectButton sunkedge
+*IconMan: IconButton sunk
+*IconMan: FollowFoxcus true
+*IconMan: Font Shadow=0:xft:Cuprum:Regular:Roman:size=8:encoding=iso10646-1
+*IconMan: Format "%i %t"
+*IconMan: Resolution desk
+*IconMan: UseWinList true
+
+DestroyModuleConfig IconMan2: *
+
+*IconMan2: Colorset 16
+*IconMan2: IconColorset 16
+*IconMan2: PlainColorset 16
+*IconMan2: SelectColorset 16
+*IconMan2: FocusAndSelectColorset 16
+*IconMan2: FocusColorset 16
+#*IconMan2: MaxButtonWidth 500
+*IconMan2: ManagerGeometry 0x1
+*IconMan2: ButtonGeometry 100x80
+*IconMan2: ShowOnlyIcons true
+*IconMan2: DrawIcons true
+*IconMan2: Shape true
+*IconMan2: ReliefThickness 0
+*IconMan2: FocusButton sunkedge
+*IconMan2: FocusAndSelectButton sunkedge
+*IconMan2: IconButton raisededge
+*IconMan2: FollowFoxcus true
+*IconMan2: Font Shadow=0:xft:Cuprum:Bold:Roman:size=9:encoding=iso10646-1
+*IconMan2: Format "%i"
+*IconMan2: Resolution desk
+
+DestroyModuleConfig IconManV: *
+
+*IconManV: Colorset 16
+*IconManV: IconColorset 16
+*IconManV: PlainColorset 16
+*IconManV: SelectColorset 16
+*IconManV: FocusAndSelectColorset 16
+*IconManV: FocusColorset 16
+#*IconManV: MaxButtonWidth 500
+*IconManV: ManagerGeometry 1x0+0+40
+*IconManV: ButtonGeometry 70x80
+*IconManV: ShowOnlyIcons true
+*IconManV: DrawIcons true
+*IconManV: Shape true
+*IconManV: ReliefThickness 0
+*IconManV: FocusButton sunkedge
+*IconManV: FocusAndSelectButton sunkedge
+*IconManV: IconButton raisededge
+*IconManV: FollowFoxcus true
+*IconManV: Font Shadow=0:xft:Cuprum:Bold:Roman:size=9:encoding=iso10646-1
+*IconManV: Format "%i "
+*IconManV: Resolution desk
+
+DestroyModuleConfig IconManBox: *
+
+*IconManBox: Colorset 16
+*IconManBox: Geometry 568x83+0-0
+*IconManBox: Rows 1
+*IconManBox: Columns 1
+*IconManBox: BoxSize fixed
+
+*IconManBox: (1x1+0+0, Frame 0, Padding 0 0, Left, Swallow "IconMan2" "Module FvwmIconMan IconMan2")
+
+DestroyModuleConfig IconManBox2: *
+
+*IconManBox2: Colorset 5
+*IconManBox2: Geometry 602x80+0-0
+*IconManBox2: Rows 1
+*IconManBox2: Columns 1
+*IconManBox2: BoxSize fixed
+
+*IconManBox2: (1x1+0+0, Frame 0, Padding 0 0, Swallow "IconManBox" "Module FvwmButtons IconManBox")
+
+DestroyModuleConfig IconBox: *
+
+*IconBox: Colorset 5
+*IconBox: Geometry 1191x13+0-0
+*IconBox: Rows 1
+*IconBox: Columns 1191
+*IconBox: BoxSize fixed
+
+*IconBox: (33x1+0+0, Id IconsButton, Frame 1, Padding 0 0, Icon Borg/windows.svgz:20x11, Panel (up,position module left -3p 0) IconManBox2 "Module FvwmButtons IconManBox2")
+*IconBox: (1158x1+33+0, Frame 0, Padding 0 0, Swallow "IconMan" "Module FvwmIconMan IconMan")
+
+Read PagerConfig
+
+DestroyModuleConfig IconBoxLeft: *
+
+*IconBoxLeft: Colorset 16
+*IconBoxLeft: Geometry 80x666+0+40
+*IconBoxLeft: Rows 664
+*IconBoxLeft: Columns 1
+*IconBoxLeft: BoxSize fixed
+*IconBoxLeft: Font Shadow=0:xft:Cuprum:Bold:Roman:size=8:encoding=iso10646-1
+
+*IconBoxLeft: (1x74+0+0, Frame -1, Padding 7 2, Center, Title "Alt+F2", Icon "mac/user-desktop.png", Action "Exec exec krunner")
+*IconBoxLeft: (1x510+0+74, Frame -1, Padding 0 0, Left, Top, Swallow "IconManV" "Module FvwmIconMan IconManV Transient")
+#*IconBoxLeft: (1x64+0+600, Frame -1, Padding 2 2, Center, Swallow "xload" "Exec exec xload -jumpscroll 1 -nolabel -hl green -update 1 -scale 5")
+*IconBoxLeft: (1x16+0+584, Frame 0, Padding 0 0, Center, Swallow "FvwmPager" "Module FvwmPager *")
+*IconBoxLeft: (1x64+0+600, Frame -1, Colorset 17, Back black, Padding 7 2, Center, Swallow "wmforkplop" "Exec exec wmforkplop --font=Verdana/6")
+

@@ -1,0 +1,39 @@
+# MacOS X Button Setup
+# Written by Maciej Delmanowski <harnir@linux.net.pl>
+#
+# This is the window titlebar button setup similar to the MacOS X
+# buttons on the titlebar
+
+# First button - close
+Mouse 3 1 N Close
+Mouse 1 1 M Kill
+Mouse 2 1 N Nop
+Style * Button 1
+
+Style * NoButton 2
+
+# Second button - iconify
+Mouse 3 3 N Iconify
+Mouse 1 3 N Nop
+Mouse 2 3 N Nop
+Style * Button 3
+
+Style * NoButton 4
+
+# third button - various ways to maximize a window
+Mouse 3 5 N Maximize 90 88
+Mouse 2 5 N Maximize 0 100
+Mouse 1 5 N Maximize 
+Style * Button 5
+
+Style * NoButton 6
+
+Style * NoButton 7
+
+Style * NoButton 8
+
+Style * NoButton 9
+
+Style * NoButton 0
+
+# vim:ft=fvwm

@@ -1,0 +1,44 @@
+# MacOS X version
+
+# Setup colorsets
+Read $./Colorsets
+
+DestroyDecor recreate WindowDecoration
+AddToDecor WindowDecoration
+
++ TitleStyle InActive Colorset $[cs-window-inactive]
++ TitleStyle Active Colorset $[cs-window-active]
++ TitleStyle LeftJustified
++ TitleStyle -- flat
++ TitleStyle Height 20
+
++ BorderStyle -- HiddenHandles
++ BorderStyle -- Flat
+
++ ButtonStyle 1 Pixmap $./window-close.png
+
++ ButtonStyle 3 Pixmap $./window-iconify.png
+
++ ButtonStyle 5 Pixmap $./window-maximize.png
+
++ ButtonStyle 7 MiniIcon
+
++ ButtonStyle All -- UseTitleStyle
++ ButtonStyle All -- flat
+
+Style * HandleWidth 1, BorderWidth 1
+#Style * Colorset                $[cs-window-inactive], \
+#        BorderColorset          $[cs-window-inactive], \
+#        HilightColorset         $[cs-window-active], \
+#        HilightBorderColorset   $[cs-window-active]
+Style * Colorset                $[cs-window-inactive], \
+        HilightColorset         $[cs-window-active]
+
+#Style * Font xft:LucidaMACBold:Bold:Roman:size=12:encoding=iso10646-1:Shadow=1
+Style * Font xft:Verdana:Bold:Roman:pixelsize=12:encoding=iso10646-1:Shadow=1
+
+Style * UseDecor WindowDecoration
+
+# Setup button functions
+Read buttons/Buttons-Darkman
+

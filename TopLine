@@ -1,0 +1,83 @@
+DestroyModuleConfig TopLine: *
+*TopLine: Font none
+*TopLine: Rows 1
+*TopLine: Columns 1
+*TopLine: Colorset 14
+*TopLine: Geometry 1140x2+0+48
+*TopLine: BoxSize fixed
+*TopLine: (Frame 1, Action GotoDesk 0 0)
+
+DestroyModuleConfig UpLine: *
+*UpLine: Font none
+*UpLine: Rows 1
+*UpLine: Columns 1
+*UpLine: Colorset 14
+*UpLine: Geometry 1280x2+0+0
+*UpLine: BoxSize fixed
+*UpLine: (Frame 1, Action GotoDesk 0 0)
+
+DestroyModuleConfig BottomLine: *
+*BottomLine: Font none
+*BottomLine: Rows 1
+*BottomLine: Columns 1
+*BottomLine: Colorset 14
+*BottomLine: Geometry 1280x2+0-0
+*BottomLine: BoxSize fixed
+*BottomLine: (Frame 1, Action GotoDesk 0 0)
+
+DestroyModuleConfig LeftLine: *
+*LeftLine: Font none
+*LeftLine: Rows 1
+*LeftLine: Columns 1
+*LeftLine: Colorset 14
+*LeftLine: Geometry 2x1024+0+0
+*LeftLine: BoxSize fixed
+*LeftLine: (Frame 1, Action GotoDesk 0 0)
+
+DestroyModuleConfig RightLine: *
+*RightLine: Font none
+*RightLine: Rows 1
+*RightLine: Columns 1
+*RightLine: Colorset 14
+*RightLine: Geometry 2x1024-0+0
+*RightLine: BoxSize fixed
+*RightLine: (Frame 1, Action GotoDesk 0 0)
+
+DestroyModuleConfig IconLine: *
+*IconLine: Font none
+*IconLine: Rows 1
+*IconLine: Columns 1
+*IconLine: Colorset 14
+*IconLine: Geometry 2x985-140+47
+*IconLine: BoxSize fixed
+*IconLine: (Frame 1, Action GotoDesk 0 0)
+
+DestroyModuleConfig IconFloor: *
+*IconFloor: Font none
+*IconFloor: Rows 9
+*IconFloor: Columns 2
+*IconFloor: Colorset 5
+*IconFloor: Geometry 138x1000-2+24
+*IconFloor: BoxSize fixed
+*IconFloor: (2x1+0+0,Frame 0, Action GotoDesk 0 0)
+*IconFloor: (2x1+0+7,Padding 33 25, Frame 0, Swallow (UseOld) "wmclockmon" 'Exec exec wmclockmon -bw -bl')
+#*IconFloor: (1x1+1+7,Padding 2 0, Frame 0, Swallow (UseOld) "mountapp" 'Exec exec mount.app -n')
+*IconFloor: (2x1+0+8,Padding 2 2, Frame -1, Swallow (UseOld) "FvwmPager" 'Module FvwmPager 0 5')
+
+DestroyModuleConfig WinTitle: *
+*WinTitle: Font xft:LucidaMACBold:Bold:Roman:size=12:encoding=iso10646-1:Shadow=1
+*WinTitle: Rows 1
+*WinTitle: Columns 1
+*WinTitle: Colorset 5
+*WinTitle: Geometry 1137x24+3+0
+*WinTitle: BoxSize fixed
+*WinTitle: (Id WindowTitle, Left, Title(Right) "Title", Frame 0, Action GotoDesk 0 0)
+
+DestroyFunc SetActiveTitle
+AddToFunc SetActiveTitle
++ I SendToModule WinTitle ChangeButton WindowTitle Title $[w.name]
+
+*FvwmEvent: enter_window SetActiveTitle
+
+
+

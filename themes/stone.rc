@@ -1,0 +1,119 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 1 fg black, bg #8a8a8a, hi #cecece
+Colorset 4 fg black, bg #8a8a8a, hi #cecece
+
+# Active window
+Colorset 3 fg white, bg #686868, hi #989898
+
+#Menu
+Colorset 2 fg #bbc656, bg black, TiledPixmap back-stone.png 
+#, RootTransparent, Tint black 50
+#Colorset 2 fg gray80, bg #8a8a8a, RootTransparent, Tint black 50
+
+#Window Title 
+#active
+Colorset 7 fg #bbc656, bg #3a3d42, hi black, TiledPixmap back-stone.png 
+#RootTransparent, Tint black 50
+#inactive
+Colorset 8 fg black, bg #3a3d42, hi #1aacbc,  TiledPixmap back-stone.png
+#RootTransparent, Tint black 50
+
+#Pager
+Colorset 9 fg gray70, bg #686868, hi black, TiledPixmap back-stone.png
+#RootTransparent, Tint black 50
+#, RootTransparent buffer, Tint #3a6e84 50
+
+
+#CDE panel
+#Colorset 5 fg white, bg #3a6e84, hi #88a4a8
+Colorset 5 fg #bbc656, bg #686868, hi #224010, TiledPixmap back-stone.png
+#RootTransparent buffer, Tint black 70
+#, RootTransparent buffer, Tint #3a6e84 50
+
+#Icon Title
+Colorset 15 fg #bbc656, bg black, RootTransparent, Tint black 50
+#Colorset 15 fg black, bg #b2b2b2, RootTransparent, Tint black 50
+
+# MenuBar
+Colorset 20 fg #bbc656, bg black, TiledPixmap back-stone.png
+#, RootTransparent, Tint black 50
+#, TiledPixmap gray/menubar.png
+
+# Transparent
+#Colorset 50 fg black, bg white, RootTransparent
+
+ButtonStyle reset
+
+#ButtonStyle 1 Active Colorset 3
+#ButtonStyle 1 Inactive Colorset 1
+#ButtonStyle 2 Active Colorset 3
+#ButtonStyle 2 Inactive Colorset 1
+ButtonStyle 1 ActiveUp Pixmap gray/menu.png
+ButtonStyle 1 ActiveDown Pixmap gray/menu-a.png
+ButtonStyle 1 InactiveUp Pixmap gray/menu.png
+ButtonStyle 1 InactiveDown Pixmap gray/menu-a.png
+ButtonStyle 2 ActiveUp Pixmap gray/close.png
+ButtonStyle 2 ActiveDown Pixmap gray/close-a.png
+ButtonStyle 2 InactiveUp Pixmap gray/close.png
+ButtonStyle 2 InactiveDown Pixmap gray/close-a.png
+ButtonStyle 4 ActiveUp Pixmap gray/min.png
+ButtonStyle 4 ActiveDown Pixmap gray/min-a.png
+ButtonStyle 4 InactiveUp Pixmap gray/min.png
+ButtonStyle 4 InactiveDown Pixmap gray/min-a.png
+
+ButtonStyle All -- UseTitleStyle flat
+
+BorderStyle Active Colorset 7
+BorderStyle Inactive Colorset 8
+BorderStyle Active (-- flat NoInset)
+BorderStyle Inactive (-- flat NoInset)
+
+TitleStyle Active Colorset 7
+TitleStyle Inactive Colorset 8
+TitleStyle Active (-- flat)
+TitleStyle Inactive (-- flat)
+
+#TitleStyle Active MultiPixmap \
+#						Buttons TiledPixmap gray/title-a.png, \
+#						Main TiledPixmap gray/title-a.png -- flat
+#TitleStyle Inactive MultiPixmap \
+#						Buttons TiledPixmap gray/title-i.png, \
+#						Main TiledPixmap gray/title-i.png -- flat
+
+TitleStyle LeftJustified
+
+AddToFunc DeiconifyAndRearrange
++ C All (CurrentPage Iconic) PlaceAgain Icon
+
+Mouse 1 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 1 2		A		Close
+Mouse 3 2		A		Close
+#Iconify
+Mouse 2 4		A		WindowShade
+Mouse 1 4       A       Maximize 100 100
+Mouse 3 4		A		Thumbnail
+
+Style * 		IndexedWindowName
+#, TitleAtLeft
+Style *			BorderWidth 4, HandleWidth 4, NoTitle
+Style *         MWMFunctions, MWMBorder
+Style *			Font Shadow=1:xft:Comic\ Sans\ MS:Regular:size=10:encoding=iso10646-1
+# Icons on bottom right
+#Style *				IconBox 700x150-1-1,IconFill right bottom
+# Icons on top left
+#Style *			IconBox 150x700+0+30, IconFill left top
+# Icons on bottom left
+#Style *			IconBox 700x150+1-1, IconFill left bottom
+# Icons on top right
+#Style *				IconBox 150x700-1+30, IconFill right top
+# Icons on bottom right (vertical)
+#Style *			IconBox 150x700-30-1, IconFill right bottom
+# IPanels at top
+Style *                 IconBox 500x110+360+1, IconFill left bottom
+
+
+Key r		A	M	DeiconifyAndRearrange
+

@@ -1,0 +1,106 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 1 fg gray20, hi black, bg gray60, RootTransparent
+Colorset 4 fg gray20, hi #90b0b8, bg gray60
+
+# Active window
+Colorset 3 fg black, bg gray60, hi black
+
+#Menu
+Colorset 2 fg black, bg white, hi gray100, TiledPixmap button/background.png
+#, RootTransparent buffer, Tint white 60
+
+#Window Title 
+#active
+Colorset 7 fg white, hi white, sh black, bg black, RootTransparent
+#inactive
+Colorset 8 fg white, hi #90b0b8, bg gray60, RootTransparent
+
+#Pager
+Colorset 9 fg white, bg white, hi white, sh white, RootTransparent, Tint black 30
+#, Tint #005478 50
+
+#CDE panel
+Colorset 5 fg white, bg #3a6e84, hi white, sh white, RootTransparent, Tint black 0
+#, Tint #adaaad 40
+#, Tint #3a6e84 50
+
+#IconMan
+Colorset 10 fg white, bg black, hi white, RootTransparent buffer
+
+#Border active
+Colorset 11 fg white, bg black, hi black
+#Border inactive 
+Colorset 12 fg cyan, bg gray 60, hi gray60
+
+#Icon Title
+Colorset 15 fg black, RootTransparent
+
+# Applications
+Colorset 20 fg black, bg white, hi white, sh white, RootTransparent
+Colorset 21 fg white, bg white, hi black, RootTransparent
+
+ButtonStyle reset
+
+ButtonStyle 1 Active Colorset 3
+ButtonStyle 1 Inactive Colorset 1
+ButtonStyle 2 Active Colorset 3
+ButtonStyle 2 Inactive Colorset 1
+ButtonStyle 3 Active Colorset 3
+ButtonStyle 3 Inactive Colorset 1
+ButtonStyle 1 ActiveUp Pixmap button/close-activeup.xpm
+ButtonStyle 1 ActiveDown Pixmap button/close-activedown.xpm
+ButtonStyle 1 InactiveUp Pixmap button/inactive.xpm
+ButtonStyle 1 InactiveDown Pixmap button/inactive.xpm
+ButtonStyle 2 ActiveUp Pixmap tiger/menu.png
+ButtonStyle 2 ActiveDown Pixmap tiger/menu.png
+ButtonStyle 2 InactiveUp Pixmap tiger/menu-down.png
+ButtonStyle 2 InactiveDown Pixmap tiger/menu-down.png
+ButtonStyle 3 ActiveUp Pixmap button/maximize-activeup.xpm
+ButtonStyle 3 ActiveDown Pixmap button/maximize-activedown.xpm
+ButtonStyle 3 InactiveUp Pixmap button/inactive.xpm
+ButtonStyle 3 InactiveDown Pixmap button/inactive.xpm
+
+ButtonStyle All -- UseTitleStyle flat
+
+BorderStyle Active Colorset 3
+BorderStyle Inactive Colorset 4
+BorderStyle Active (-- flat)
+BorderStyle Inactive (-- flat)
+
+TitleStyle Active Colorset 7 -- flat
+TitleStyle Inactive Colorset 8 -- flat
+TitleStyle Inactive MultiPixmap \
+						Buttons TiledPixmap tiger/title.png, \
+						Main TiledPixmap tiger/title.png -- flat
+TitleStyle ActiveUp MultiPixmap \
+						Buttons TiledPixmap tiger/title.png, \
+						Main TiledPixmap tiger/title.png -- flat
+
+TitleStyle RightJustified
+
+AddToFunc DeiconifyAndRearrange
++ C All (CurrentPage Iconic) PlaceAgain Icon
+
+Mouse 1 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 3 1       A       Close
+Mouse 1 2       A       Menu MenuFvwmWindowOps2
+Mouse 3 2       A       Menu MenuFvwmWindowOps2
+Mouse 3 3		A		Thumbnail
+Mouse 2 3		A		WindowShade
+Mouse 1 3       A       Maximize 90 90
+
+Style * 		IndexedWindowName
+Style *			BorderWidth 2, HandleWidth 2
+Style *         MWMFunctions, MWMBorder
+Style *			Font xft:Code2000:Italic:size=12:encoding=iso10646-1
+#Style *			IconBox 800x110+3-3, IconFill left top
+Style *			IconBox 1152x150-5-0, IconFill right bottom
+
+Key r		A	M	DeiconifyAndRearrange
+
+SetEnv base_image /home/darkman/bmp/fvwm/base-printer.png
+SetEnv icon_gravity North
+

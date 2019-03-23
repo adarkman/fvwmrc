@@ -1,0 +1,72 @@
+
+####################################### Colorsets
+# Active window
+Colorset 1 fg black, bg #a49d83
+# Inactive window 
+Colorset 2 fg black, bg #838183, RootTransparent buffer, Tint #838183 80, IconAlpha 80
+
+# Menu base
+Colorset 3 fg white, bg black, RootTransparent, Tint black 50
+# Menu hilight
+Colorset 4 fg white, bg blue
+
+# Pager
+Colorset 7 fg white, bg blue, RootTransparent, Tint white 40
+# Inactive window in pager
+Colorset 5 fg white, bg blue, RootTransparent, Tint white 20
+
+# Icon title
+Colorset 6 fg white, bg blue, RootTransparent, Tint white 20
+
+####################################### Titles/Borrders/Buttons
+TitleStyle LeftJustified Height 25
+TitleStyle ActiveUp Colorset 1
+TitleStyle ActiveDown Colorset 1
+TitleStyle InactiveUp Colorset 2
+TitleStyle InactiveDown Colorset 2
+TitleStyle -- raised
+
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 2
+BorderStyle -- raised
+
+AddButtonStyle All -- UseTitleStyle 
+AddButtonStyle All Active (Colorset 1) \
+			Inactive (Colorset 2)
+AddButtonStyle 1 ActiveUp (Pixmap irix-menu.png) \
+			ActiveDown (Pixmap irix-menu.png) \
+			InactiveUp (Pixmap irix-menu.png) \
+			InactiveDown (Pixmap irix-menu.png) -- raised
+
+AddButtonStyle 2 ActiveUp (Pixmap irix-close.png) \
+			ActiveDown (Pixmap irix-close.png) \
+			InactiveUp (Pixmap irix-close.png) \
+			InactiveDown (Pixmap irix-close.png) -- raised
+
+AddButtonStyle 4 ActiveUp (Pixmap irix-max.png) \
+			ActiveDown (Pixmap irix-max.png) \
+			InactiveUp (Pixmap irix-max.png) \
+			InactiveDown (Pixmap irix-max.png) -- raised
+
+AddButtonStyle 6 ActiveUp (Pixmap irix-mini.png) \
+			ActiveDown (Pixmap irix-mini.png) \
+			InactiveUp (Pixmap irix-mini.png) \
+			InactiveDown (Pixmap irix-mini.png) -- raised
+
+####################################### GlobalStyle
+Style * Font xft:LucidaMACBold:Bold:Roman:size=12:encoding=iso10646-1:Shadow=1
+Style * IconFont xft:Lucida\ MAC:Bold:Roman:size=9:encoding=iso10646-1:Shadow=1
+Style * FPEnterToFocus, FPFocusByFunctionWarpPointer, FPPassFocusClick
+Style * FPClickRaisesFocused, FPPassRaiseClick
+Style * FPGrabFocus
+Style * HilightColorset 1, Colorset 2
+Style * IconTitleColorset 6, IconTitleRelief 0
+#Style * TitleAtLeft
+#Style * NoTitle
+Style * BorderWidth 7, HandleWidth 7
+Style * IconBox 200x900+3+33, IconGrid 5 5, IconFill Top Left
+Style * ResizeOutline
+Style * MinOverlapPlacement
+Style * DecorateTransient
+#Style * MwmButtons , MwmBorder, MwmDecor, MwmFunctions
+

@@ -1,0 +1,152 @@
+########################### Pager #########################################
+DestroyModuleConfig FvwmPager1: *
+#*FvwmPager1: Back LightSteelBlue4
+#*FvwmPager1: Fore LightSteelBlue4
+*FvwmPager1: NoSeparators
+*FvwmPager1: Rows 1
+*FvwmPager1: Columns 1
+#*FvwmPager1: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager1: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+#*FvwmPager1: Hilight SteelBlue4
+#SteelBlue4
+#*FvwmPager1: WindowColors black DarkCyan black Cyan 
+*FvwmPager1: Colorset * 7
+*FvwmPager1: HilightColorset * 21
+*FvwmPager1: WindowColorsets 18 21
+*FvwmPager1: WindowBorderWidth 0
+*FvwmPager1: Geometry -1-1
+#*FvwmPager1: SmallFont Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager1: SmallFont none
+*FvwmPager1: Balloons            All
+*FvwmPager1: BalloonBack         Yellow
+*FvwmPager1: BalloonFore         Black
+*FvwmPager1: BalloonFont         -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-koi8-*
+*FvwmPager1: BalloonYOffset      +2
+*FvwmPager1: BalloonBorderWidth  1
+*FvwmPager1: BalloonBorderColor  Black
+*FvwmPager1: NoSeparators
+
+
+DestroyModuleConfig FvwmPager2: *
+#*FvwmPager2: Back LightSteelBlue4
+#*FvwmPager2: Fore LightSteelBlue4
+*FvwmPager2: NoSeparators
+*FvwmPager2: Rows 1
+*FvwmPager2: Columns 1
+*FvwmPager2: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+#*FvwmPager2: Hilight SteelBlue4
+#*FvwmPager2: WindowColors black DarkCyan black Cyan
+*FvwmPager2: Colorset * 7
+*FvwmPager2: HilightColorset * 21
+*FvwmPager2: WindowColorsets 18 21
+*FvwmPager2: WindowBorderWidth 0
+*FvwmPager2: Geometry -1-1
+#*FvwmPager2: SmallFont Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager2: SmallFont none
+*FvwmPager2: Balloons            All
+*FvwmPager2: BalloonBack         Yellow
+*FvwmPager2: BalloonFore         Black
+*FvwmPager2: BalloonFont         -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-koi8-*
+*FvwmPager2: BalloonYOffset      +2
+*FvwmPager2: BalloonBorderWidth  1
+*FvwmPager2: BalloonBorderColor  Black
+
+
+DestroyModuleConfig FvwmPager3: *
+#*FvwmPager3: Back LightSteelBlue4
+#*FvwmPager3: Fore LightSteelBlue4
+*FvwmPager3: NoSeparators
+*FvwmPager3: Rows 1
+*FvwmPager3: Columns 1
+*FvwmPager3: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+#*FvwmPager3: Hilight SteelBlue4
+#*FvwmPager3: WindowColors black DarkCyan black Cyan
+*FvwmPager3: Colorset * 7
+*FvwmPager3: HilightColorset * 21
+*FvwmPager3: WindowColorsets 18 21
+*FvwmPager3: WindowBorderWidth 0
+*FvwmPager3: Geometry -1-1
+#*FvwmPager3: SmallFont Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager3: SmallFont none
+*FvwmPager3: Balloons            All
+*FvwmPager3: BalloonBack         Yellow
+*FvwmPager3: BalloonFore         Black
+*FvwmPager3: BalloonFont         -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-koi8-*
+*FvwmPager3: BalloonYOffset      +2
+*FvwmPager3: BalloonBorderWidth  1
+*FvwmPager3: BalloonBorderColor  Black
+
+
+DestroyModuleConfig FvwmPager4: *
+#*FvwmPager4: Back LightSteelBlue4
+#*FvwmPager4: Fore LightSteelBlue4
+*FvwmPager4: NoSeparators
+*FvwmPager4: Rows 1
+*FvwmPager4: Columns 1
+*FvwmPager4: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+#*FvwmPager4: Hilight SteelBlue4
+#*FvwmPager4: WindowColors black DarkCyan black Cyan
+*FvwmPager4: Colorset * 7
+*FvwmPager4: HilightColorset * 21
+*FvwmPager4: WindowColorsets 18 21
+*FvwmPager4: WindowBorderWidth 0
+*FvwmPager4: Geometry -1-1
+#*FvwmPager4: SmallFont Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager4: SmallFont none
+*FvwmPager4: Balloons            All
+*FvwmPager4: BalloonBack         Yellow
+*FvwmPager4: BalloonFore         Black
+*FvwmPager4: BalloonFont         -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-koi8-*
+*FvwmPager4: BalloonYOffset      +2
+*FvwmPager4: BalloonBorderWidth  1
+*FvwmPager4: BalloonBorderColor  Black
+
+
+DestroyModuleConfig FvwmPager5: *
+#*FvwmPager5: Back LightSteelBlue4
+#*FvwmPager5: Fore LightSteelBlue4
+*FvwmPager5: NoSeparators
+*FvwmPager5: Rows 1
+*FvwmPager5: Columns 1
+*FvwmPager5: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+#*FvwmPager5: Hilight SteelBlue4
+#*FvwmPager5: WindowColors black DarkCyan black Cyan
+*FvwmPager5: Colorset * 7
+*FvwmPager5: HilightColorset * 21
+*FvwmPager5: WindowColorsets 18 21
+*FvwmPager5: WindowBorderWidth 0
+*FvwmPager5: Geometry -1-1
+#*FvwmPager5: SmallFont Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager5: SmallFont none
+*FvwmPager5: Balloons            All
+*FvwmPager5: BalloonBack         Yellow
+*FvwmPager5: BalloonFore         Black
+*FvwmPager5: BalloonFont         -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-koi8-*
+*FvwmPager5: BalloonYOffset      +2
+*FvwmPager5: BalloonBorderWidth  1
+*FvwmPager5: BalloonBorderColor  Black
+
+
+DestroyModuleConfig FvwmPager6: *
+#*FvwmPager6: Back LightSteelBlue4
+#*FvwmPager6: Fore LightSteelBlue4
+*FvwmPager6: NoSeparators
+*FvwmPager6: Rows 1
+*FvwmPager6: Columns 1
+*FvwmPager6: Font Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+#*FvwmPager6: Hilight SteelBlue4
+#*FvwmPager6: WindowColors black DarkCyan black Cyan
+*FvwmPager6: Colorset * 7
+*FvwmPager6: HilightColorset * 21
+*FvwmPager6: WindowColorsets 18 21
+*FvwmPager6: WindowBorderWidth 0
+*FvwmPager6: Geometry -1-1
+#*FvwmPager6: SmallFont Shadow=1:xft:CourierC:Regular:Roman:size=12:encoding=iso10646-1
+*FvwmPager6: SmallFont none
+*FvwmPager6: Balloons            All
+*FvwmPager6: BalloonBack         Yellow
+*FvwmPager6: BalloonFore         Black
+*FvwmPager6: BalloonFont         -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-koi8-*
+*FvwmPager6: BalloonYOffset      +2
+*FvwmPager6: BalloonBorderWidth  1
+*FvwmPager6: BalloonBorderColor  Black

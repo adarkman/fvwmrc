@@ -1,0 +1,415 @@
+
+##########	Empidy FVWM Script
+##########	Mini MPD client
+##########	by sebaro
+##########
+##########	rev.2012-08-15
+
+WindowTitle {Empidy}
+WindowSize 320 120
+WindowPosition 1000 100
+
+##### Global Style
+Colorset 30
+Font "xft:Cuprum:size=10:bold"
+
+Init
+Begin
+  ##### Widgets Style
+  Set $altColorset = {31}
+  
+  ##### Settings
+  Set $homeDir = (GetOutput {echo $HOME} 1 -1) {/.fvwm/scripts/}
+  Set $musicPath = {/opt/Music/}
+  Set $myCover = {cover.jpg}
+  Set $putTmp = {/dev/shm/}
+  Set $scrollText = {true}
+
+  ##### Widgets
+  Set $stopCover = $homeDir {icons/stopped.png}
+  Set $playCover = $homeDir {icons/playing.png}
+  ChangeIcon 1 $stopCover
+  HideWidget 2
+  Set $prevButton = $homeDir {icons/media-skip-backward.svgz:22x22}
+  ChangeIcon 3 $prevButton
+  Set $playButton = $homeDir {icons/media-playback-start.svgz:22x22}
+  Set $stopButton = $homeDir {icons/media-playback-stop.svgz:22x22}
+  ChangeIcon 4 $stopButton
+  Set $pauseButton = $homeDir {icons/media-playback-pause.svgz:22x22}
+  ChangeIcon 5 $pauseButton
+  Set $nextButton = $homeDir {icons/media-skip-forward.svgz:22x22}
+  ChangeIcon 6 $nextButton
+  ChangeColorset 8 $altColorset
+  ChangeColorset 9 $altColorset
+  Set $quitButton = $homeDir {icons/close_inactive.svg:16x16}
+  ChangeIcon 10 $quitButton
+
+  ##### Tmp Data
+  Set $tmpCover = $putTmp {empidy_cover.png}
+  Set $convertStatus = $putTmp {empidy_convert_status}
+  Do {exec echo "" > "} $convertStatus {"}
+
+  ###### Variables
+  Set $Title = {}
+  Set $Artist = {}
+  Set $Album = {}
+  Set $textWidth = 43
+
+  ##### Start MPD
+  #Set $isMPD = (GetOutput {exec ps -A | grep -ow mpd} 1 -1)
+  #If $isMPD <> mpd Then
+  #  Do {exec mpd}
+End
+
+PeriodicTasks
+Begin
+  If (GetOutput {mpc | grep -o playing} 1 -1) == {playing} Then
+  Begin
+    If $isStartedSet <> {true} Then
+    Begin
+      ChangeIcon 1 $playCover
+      ChangeIcon 4 $stopButton
+      ChangeIcon 5 $pauseButton
+      ShowWidget 8
+      ShowWidget 9
+      Set $isStartedSet = {true}
+      Set $isStoppedSet = {false}
+      Set $isPausedSet = {false}
+    End
+
+    ##### Check & Change Title
+    Set $newTitle = (GetOutput {mpc --format %title% | head -n 1 | cut -d "[" -f 1 | sed -e "s/|//g" -e "s/\`/'/g"} 1 -1)
+    If $newTitle == {} Then
+      Set $newTitle = {Title N/A}
+    If $Title <> $newTitle Then
+    Begin
+      Set $Title = $newTitle
+      If $scrollText == {true} Then
+      Begin
+        Set $titleLength = (GetOutput {title=$(mpc --format %title% | head -n 1 | cut -d "[" -f 1);expr length "$title"} 1 -1)
+        If $titleLength > $textWidth Then
+        Begin
+          Set $scrollTitle = {true}
+          Set $startTitlePos = 1
+          Set $stopTitlePos = $textWidth
+        End
+        Else
+        Begin
+          Set $scrollTitle = {false}
+          ChangeTitle 7 $newTitle
+        End
+      End
+      Else
+        ChangeTitle 7 $newTitle
+    End
+
+   ##### Check & Change Artist
+    Set $newArtist = (GetOutput {mpc --format %artist% | head -n 1 | cut -d "[" -f 1 | sed -e "s/|//g" -e "s/\`/'/g"} 1 -1)
+    If $newArtist == {} Then
+      Set $newArtist = {Artist N/A}
+    If $Artist <> $newArtist Then
+    Begin
+      Set $Artist = $newArtist
+      If $scrollText == {true} Then
+      Begin
+        Set $artistLength = (GetOutput {artist=$(mpc --format %artist% | head -n 1 | cut -d "[" -f 1);expr length "$artist"} 1 -1)
+        If $artistLength > $textWidth Then
+        Begin
+          Set $scrollArtist = {true}
+          Set $startArtistPos = 1
+          Set $stopArtistPos = $textWidth
+        End
+        Else
+        Begin
+          Set $scrollArtist = {false}
+          ChangeTitle 8 $newArtist
+        End
+      End
+      Else
+        ChangeTitle 8 $newArtist
+    End
+
+    ##### Check & Change Album
+    Set $newAlbum = (GetOutput {mpc --format %album% | head -n 1 | cut -d "[" -f 1 | sed -e "s/|//g" -e "s/\`/'/g"} 1 -1)
+    If $newAlbum == {} Then
+      Set $newAlbum = {Album N/A}
+    If $Album <> $newAlbum Then
+    Begin
+      Set $Album = $newAlbum
+      If $scrollText == {true} Then
+      Begin
+        Set $albumLength = (GetOutput {album=$(mpc --format %album% | head -n 1 | cut -d "[" -f 1);expr length "$album"} 1 -1)
+        If $albumLength > $textWidth Then
+        Begin
+          Set $scrollAlbum = {true}
+          Set $startAlbumPos = 1
+          Set $stopAlbumPos = $textWidth
+        End
+        Else
+        Begin
+          Set $scrollAlbum = {false}
+          ChangeTitle 9 $newAlbum
+        End
+      End
+      Else
+        ChangeTitle 9 $newAlbum
+      HideWidget 2
+      ShowWidget 1
+      Set $pathDepth = (GetOutput {mpc --format %file% | head -n 1 | tr -dc "/" | wc -c} 1 -1)
+      If $pathDepth == 0 Then
+        Set $Path = {}
+      Else
+      Begin
+        Set $getPath = {mpc --format %file% | head -n 1 | cut -d "/" -f 1-} $pathDepth { | sed -e 's/"/\\"/g'}
+        Set $Path = (GetOutput  $getPath 1 -1)
+      End
+      Set $albumPath = $musicPath $Path
+      Set $out = {ls "} $albumPath {" | grep -ow } $myCover
+      If (GetOutput $out 1 -1) == $myCover Then
+      Begin
+        Set $currCover = $musicPath $Path {/} $myCover
+        Set $albumCover = (GetOutput {mpc --format %album% | head -n 1 | cut -d "[" -f 1 | sed -e "s/|//g" -e "s/\"//g" -e "s/\`//g"} 1 -1)
+        Do {exec convert -resize 100x100! "} $currCover {" "} $tmpCover {" && echo "} $albumCover {" > "} $convertStatus {" || echo "0" > "} $convertStatus {"}
+        Set $changeCover = {true}
+      End
+    End
+
+    ##### Change Cover
+    If $changeCover == {true} Then
+    Begin
+      Set $getConvertStatus = {cat "} $convertStatus {"}
+      If (GetOutput $getConvertStatus 1 -1) == $albumCover Then
+      Begin
+        Do {exec echo "" > "} $convertStatus {"}
+        ChangeIcon 2 $tmpCover
+        ShowWidget 2
+        Set $changeCover = {false}
+      End
+      If (GetOutput $getConvertStatus 1 -1) == 0 Then
+      Begin
+        Do {exec echo "" > "} $convertStatus {"}
+        HideWidget 2
+        Set $changeCover = {false}
+      End
+    End
+
+    ##### Scroll Title
+    If $scrollTitle == {true} Then
+    Begin
+      Set $newTitle = (StrCopy $newTitle $startTitlePos $stopTitlePos)
+      ChangeTitle 7 $newTitle
+      If $stopTitlePos <> $titleLength Then
+      Begin
+        Set $startTitlePos = (Add $startTitlePos 1)
+        Set $stopTitlePos = (Add $stopTitlePos 1)
+      End
+      Else
+      Begin
+        Set $startTitlePos = 1
+        Set $stopTitlePos = $textWidth
+      End
+    End
+
+    ##### Scroll Artist
+    If $scrollArtist == {true} Then
+    Begin
+      Set $newArtist = (StrCopy $newArtist $startArtistPos $stopArtistPos)
+      ChangeTitle 8 $newArtist
+      If $stopArtistPos <> $artistLength Then
+      Begin
+        Set $startArtistPos = (Add $startArtistPos 1)
+        Set $stopArtistPos = (Add $stopArtistPos 1)
+      End
+      Else
+      Begin
+        Set $startArtistPos = 1
+        Set $stopArtistPos = $textWidth
+      End
+    End
+
+    ##### Scroll Album
+    If $scrollAlbum== {true} Then
+    Begin
+      Set $newAlbum = (StrCopy $newAlbum $startAlbumPos $stopAlbumPos)
+      ChangeTitle 9 $newAlbum
+      If $stopAlbumPos <> $albumLength Then
+      Begin
+        Set $startAlbumPos = (Add $startAlbumPos 1)
+        Set $stopAlbumPos = (Add $stopAlbumPos 1)
+      End
+      Else
+      Begin
+        Set $startAlbumPos = 1
+        Set $stopAlbumPos = $textWidth
+      End
+    End
+  End
+  Else
+  Begin
+    If (GetOutput {mpc | grep -o paused} 1 -1) == {paused} Then
+    Begin
+      If $isPausedSet <> {true} Then
+      Begin
+        Set $Title = {MPD Paused...}
+        ChangeTitle 7 $Title
+        HideWidget 8
+        HideWidget 9
+        ChangeIcon 5 $playButton
+        Set $isStartedSet = {false}
+        Set $isStoppedSet = {false}
+        Set $isPausedSet = {true}
+      End
+    End
+    Else
+    Begin
+      If $isStoppedSet <> {true} Then
+      Begin
+        HideWidget 2
+        Set $Title = {MPD Stopped...}
+        ChangeTitle 7 $Title
+        Set $Artist = {}
+        ChangeTitle 8 {}
+        HideWidget 8
+        Set $Album = {}
+        ChangeTitle 9 {}
+        HideWidget 9
+        ChangeIcon 1 $stopCover
+        ChangeIcon 4 $playButton
+        ChangeIcon 5 $pauseButton
+        Set $isStartedSet = {false}
+        Set $isStoppedSet = {true}
+        Set $isPausedSet = {false}
+      End
+    End
+  End
+
+End
+
+Widget		1
+Property
+  Type		ItemDraw
+  Size		119 105
+  Position		10 8
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+
+Widget		2
+Property
+  Type		ItemDraw
+  Size		100 100
+  Position		25 10
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		3
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		145 90
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic:
+    Begin
+      Do {exec mpc prev}
+    End
+  End
+
+Widget		4
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		190 90
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic:
+    Begin
+      If $isStoppedSet == {true} Then
+        Do {exec mpc play}
+      If $isStartedSet == {true} Then
+        Do {exec mpc stop}
+      If $isPausedSet == {true} Then
+        Do {exec mpc stop}
+    End
+  End
+
+Widget		5
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		230 90
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic:
+    Begin
+      If $isPausedSet <> {true} Then
+        Do {exec mpc pause}
+      Else
+        Do {exec mpc play}
+    End
+  End
+
+Widget		6
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		275 90
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic:
+    Begin
+      Do {exec mpc next}
+    End
+  End
+
+Widget		7
+Property
+  Type		ItemDraw
+  Size		168 25
+  Position		135 10
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		8
+Property
+  Type		ItemDraw
+  Size		168 25
+  Position		135 35
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		9
+Property
+  Type		ItemDraw
+  Size		168 25
+  Position		135 60
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		10
+Property
+  Type		ItemDraw
+  Size		16 16
+  Position		303 1
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic:
+    Begin
+      Quit
+    End
+  End

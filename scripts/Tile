@@ -1,0 +1,18 @@
+#! /bin/bash
+
+LIST=~/.fvwm/.wlist
+
+TOP_ID=`head -n 1 $LIST`
+
+LEFT_COUNT=$((`wc -l $LIST|cut -d ' ' -f1`-1))
+LEFT_VSIZE=$((100/$LEFT_COUNT))
+N=0
+
+echo WindowId $TOP_ID TileResizeMove 50 100 +0 +0
+tail -n +2 $LIST | while read ID ; do
+	echo WindowId $ID TileResizeMove 50 $LEFT_VSIZE -0 $(($N*$LEFT_VSIZE)) 
+	N=$(($N+1))
+done
+
+echo -n > $LIST
+

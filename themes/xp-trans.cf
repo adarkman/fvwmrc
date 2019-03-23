@@ -1,0 +1,59 @@
+
+####################################### Colorsets
+# Active window
+Colorset 1 fg white, bg LighSkyBlue, RootTransparent buffer, Tint LightSkyBlue 60, IconAlpha 80 
+# Inactive window 
+Colorset 2 fg white, bg #104C58, RootTransparent buffer, Tint LightSkyBlue 40, IconAlpha 80
+
+# Menu base
+Colorset 3 fg white, bg #185C68
+#, RootTransparent, Tint black 50
+# Menu hilight
+Colorset 4 fg white, bg #104c58
+
+# Pager
+Colorset 7 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+# Inactive window in pager
+Colorset 5 fg white, bg #104c58, RootTransparent, Tint #104c58 50
+
+# Icon title
+Colorset 6 fg white, bg blue, RootTransparent, Tint #104c58 20
+
+# Panels
+Colorset 8 fg white, bg #104C58 , RootTransparent buffer, Tint #838183 0
+
+TitleStyle LeftJustified Height 25
+TitleStyle ActiveUp Colorset 1
+TitleStyle ActiveDown Colorset 1
+TitleStyle InactiveUp Colorset 2
+TitleStyle InactiveDown Colorset 2
+TitleStyle -- flat
+
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 2
+BorderStyle -- flat
+
+AddButtonStyle All -- UseTitleStyle 
+AddButtonStyle All Active (Colorset 1) \
+			Inactive (Colorset 2)
+AddButtonStyle 1 ActiveUp (Pixmap xp-menu.png) \
+			ActiveDown (Pixmap xp-menu.png) \
+			InactiveUp (Pixmap xp-menu.png) \
+			InactiveDown (Pixmap xp-menu.png) -- flat
+
+#AddButtonStyle 2 ActiveUp (Pixmap xp-close.png) \
+#			ActiveDown (Pixmap xp-close-sh.png) \
+#			InactiveUp (Pixmap xp-close-sh.png) \
+#			InactiveDown (Pixmap xp-close.png) -- flat
+
+AddButtonStyle 2 ActiveUp (Pixmap xp-max.png) \
+			ActiveDown (Pixmap xp-max-sh.png) \
+			InactiveUp (Pixmap xp-max-sh.png) \
+			InactiveDown (Pixmap xp-max.png) -- flat
+
+AddButtonStyle 4 ActiveUp (Pixmap xp-mini.png) \
+			ActiveDown (Pixmap xp-mini-sh.png) \
+			InactiveUp (Pixmap xp-mini-sh.png) \
+			InactiveDown (Pixmap xp-mini.png) -- flat
+
+Style * BorderWidth 3, HandleWidth 3

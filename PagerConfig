@@ -1,0 +1,42 @@
+
+DestroyModuleConfig FvwmPager: *
+
+DesktopName 0 Term
+DesktopName 1 Inet
+DesktopName 2 Docs
+DesktopName 3 Dev
+DesktopName 4 Misc
+DesktopName 5 Sys
+
+#*FvwmPager: Geometry 600x120+0-0
+#*FvwmPager: Rows 3
+#*FvwmPager: Columns 2
+#*FvwmPager: ShapeLabels
+*FvwmPager: Font Shadow=0:xft:Cuprum:Bold:Roman:size=8:encoding=iso10646-1:Shadow=1
+#*FvwmPager: Font none
+*FvwmPager: SmallFont none
+*FvwmPager: Label 0 Terms
+*FvwmPager: Label 1 Inet
+*FvwmPager: Label 2 Docs
+*FvwmPager: Label 3 Devel
+*FvwmPager: Label 4 Misc
+*FvwmPager: Label 5 System
+*FvwmPager: Colorset * 17
+*FvwmPager: WindowColorsets 5 7
+#*FvwmPager: MiniIcons
+
+*SinglePager: Geometry 600x120+0-0
+*SinglePager: Rows 1
+*SinglePager: Columns 1
+#*SinglePager: ShapeLabels
+*SinglePager: Font xft:Lucida\ Grande:Medium:Roman:size=9:encoding=iso10646-1:Shadow=1
+*SinglePager: Font none
+*SinglePager: SmallFont none
+*SinglePager: Label 0 Terms
+*SinglePager: Label 1 Inet
+*SinglePager: Label 2 Docs
+*SinglePager: Label 3 Devel
+*SinglePager: Label 4 Misc
+*SinglePager: Label 5 System
+*SinglePager: Colorset * 7
+*SinglePager: WindowColorsets 5 1

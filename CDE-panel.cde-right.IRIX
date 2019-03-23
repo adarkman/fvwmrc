@@ -1,0 +1,214 @@
+DestroyMenu  MenuFvwmWindowMove
+#AddToMenu    MenuFvwmWindowMove "Move to ..." Title
+#+ "&Right	Page%menu/window-move.xpm%" AnimatedMove w+100 w
+#  "&Left	Page%menu/window-move.xpm%" AnimatedMove w-100 w
+#+  "&Down	Page%menu/window-move.xpm%" AnimatedMove w w+100
+#+    "&Up	Page%menu/window-move.xpm%" AnimatedMove w w-100
+
+#DestroyMenu  MenuFvwmWindowGroupQuickMove
+#AddToMenu    MenuFvwmWindowGroupQuickMove
+#+ "&Right	Page%menu/window-move.xpm%" Pick All ($r) MoveToPage +1p +0p
+#+  "&Left	Page%menu/window-move.xpm%" Pick All ($r) MoveToPage -1p +0p
+#+  "D&own	Page%menu/window-move.xpm%" Pick All ($r) MoveToPage +0p +1p
+#+    "&Up	Page%menu/window-move.xpm%" Pick All ($r) MoveToPage +0p -1p
+
+# ----------------------------------------------------------------------------
+
+# Do we really need CenterPanel? We can do this with FvwmButton Container.
+
+DestroyModuleConfig FvwmIconMan *
+*FvwmIconMan: Colorset 11
+*FvwmIconMan: DrawIcons true
+*FvwmIconMan: FocusAndSelectColorset 12
+*FvwmIconMan: FocusColorset 12
+*FvwmIconMan: FollowFocus true
+*FvwmIconMan: Font xft:Lucida\ MAC:Bold:Roman:size=10:encoding=iso10646-1:Shadow=1
+*FvwmIconMan: Format "%t"
+*FvwmIconMan: IconColorset 11
+*FvwmIconMan: ManagerGeometry 3x3
+*FvwmIconMan: PlainColorset 11
+*FvwmIconMan: Resolution page
+*FvwmIconMan: Sort namewithcase
+*FvwmIconMan: UseWinList true
+*FvwmIconMan: ReliefThickness -1
+*FvwmIconMan: MaxButtonWidth 200
+
+
+Read ConfigFvwmPager
+
+DestroyModuleConfig screen: *
+*screen: Font -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*screen: Rows 11
+*screen: Columns 9
+#*screen: Back DarkCyan
+# CDE-panel color
+*screen: Colorset 5 
+# Active title color (for LCARS)
+#*screen: Colorset 7 
+#4A637B 
+#, Back DarkCyan
+*screen: BoxSize fixed
+*screen: (4x3+0+0, Frame -1, Swallow "FvwmPager1" "Module FvwmPager FvwmPager1 0 0", Action GotoDesk 0 0)
+*screen: (4x3+5+0, Frame -1, Swallow "FvwmPager2" "Module FvwmPager FvwmPager2 1 1", Action GotoDesk 0 1)
+*screen: (4x3+0+4, Frame -1, Swallow "FvwmPager3" "Module FvwmPager FvwmPager3 2 2", Action GotoDesk 0 2)
+*screen: (4x3+5+4, Frame -1, Swallow "FvwmPager4" "Module FvwmPager FvwmPager4 3 3", Action GotoDesk 0 3)
+*screen: (4x3+0+8, Frame -1, Swallow "FvwmPager5" "Module FvwmPager FvwmPager5 4 4", Action GotoDesk 0 4)
+*screen: (4x3+5+8, Frame -1, Swallow "FvwmPager6" "Module FvwmPager FvwmPager6 5 5", Action GotoDesk 0 5)
+
+
+DestroyModuleConfig sterm: *
+*sterm: Font -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*sterm: Columns 1
+*sterm: Colorset 5
+*sterm: BoxSize fixed
+*sterm: Geometry 661x480
+*sterm: (1x1, Frame 0,Swallow "urxvt" "Exec ~darkman/bin/rxvt2") 
+
+
+DestroyModuleConfig FvwmButton-CenterPanel: *
+
+*FvwmButton-CenterPanel: Font -*-courier new-bold-r-normal-*-14-*-*-*-*-*-*-*
+#*FvwmButton-CenterPanel: Colorset 50
+#*FvwmButton-CenterPanel: Back DarkCyan
+# CDE-panel color
+*FvwmButton-CenterPanel: Colorset 5
+# Active title color (for LCARS)
+#*FvwmButton-CenterPanel: Colorset 7
+#4A637B
+#DarkCyan
+#*FvwmButton-CenterPanel: Back LightSteelBlue3
+*FvwmButton-CenterPanel: Rows 16
+*FvwmButton-CenterPanel: Columns 12
+*FvwmButton-CenterPanel: BoxSize fixed
+#*FvwmButton-CenterPanel: (12x10+2+1, Frame -3, Swallow "FvwmPager" "Module FvwmPager 0 5")
+*FvwmButton-CenterPanel: (10x8+1+4, Frame 0, Swallow "screen" "Module FvwmButtons screen")
+#*FvwmButton-CenterPanel: (12x9+2+2, Frame -1, \
+#	Swallow (UseOld) "phosphor" `Exec env LC_ALL=C /usr/lib/misc/xscreensaver/phosphor -scale 1 -font 6x13 -delay 100000 -program ptail`)
+##*FvwmButton-CenterPanel: (12x8+2+2, Frame -1, \
+##	Swallow (UseOld) "FvwmIconMan" `Module FvwmIconMan`)
+*FvwmButton-CenterPanel: (6x4+0+0, Frame 0, Icon Reflektions/22x22/actions/lock.xpm, Action "Exec $[HOME]/bin/KDElock")a
+*FvwmButton-CenterPanel: (6x4+0-0, Frame 0, Icon Reflektions/22x22/apps/konsole.png, Action "Exec $[HOME]/bin/rxvt2")
+#Module FvwmPager -transient FvwmPager 0 5)
+*FvwmButton-CenterPanel: (6x4-0+0, Frame 0, Icon Reflektions/22x22/places/folder-linux.png, Action "Exec dolphin ~")
+*FvwmButton-CenterPanel: (6x4-0-0, Frame 0, Icon Reflektions/22x22/actions/exit.png, Action Exec /home/darkman/bin/KDEdown)
+#*FvwmButton-CenterPanel: (6x4-0-0, Frame 0, Icon Reflektions/22x22/actions/exit.png, Action Exec kshutdown)
+
+
+DestroyModuleConfig leftp: *
+*leftp: Rows 5
+*leftp: Columns 1
+*leftp: Colorset 5
+*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmhdplop" `Exec exec wmhdplop --bigfont=comic/10`)
+*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmcpufreq" `Exec exec wmcpufreq`)
+*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmbiff" `Exec exec wmbiff`)
+#*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmfsm" `Exec exec wmfsm`)
+#*leftp: (Frame 0, Padding 0 0, Icon CDE-icons/Fppenpd.l.pm.png, Action "Exec oowriter")
+#*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmab" `Exec exec wmab`)
+#*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmtop" `Exec exec wmtop`)
+*leftp: (Frame 0, Padding 0 0, Icon CDE-icons/DtBldr.l.pm.png, Action Popup MenuVW)
+*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmtime" `Exec exec wmtime`)
+#*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmweather+" `Exec exec wmweather+ -s UKKK -m -cm -mmHg -kph -tempc`, Exec gvim)
+
+DestroyModuleConfig left: *
+*left: Font -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*left: Rows 15
+*left: Columns 7
+*left: Colorset 5
+#*left: (7x3+0+0, Frame -1, Padding 0 0, Colorset 2, Swallow(UseOld) "wmhdplop" `Exec exec wmhdplop --bigfont=comic/10`)
+#*left: (7x3+0+3, Frame -1, Padding 0 0, Back black, Fore black, Swallow(UseOld) "wmmon+smp" `Exec exec wmmon+smp`, Exec terminal)
+*left: (7x15+0+0, Frame 0, Padding 0 0, Swallow(UseOld) "leftp" "Module FvwmButtons leftp")
+#*left: (7x3+0+6, Frame 0, Padding 0 0, Icon 56x56/safari.png, Action konqueror)
+#*left: (7x3+0+9, Frame 0, Icon 56x56/apple.png, Padding 0 0, Action FuncFvwmWWW, Action Exec gvim)
+#*left: (7x3+0+12, Frame 0, Icon 56x56/URL.png, Padding 0 0, Action Exec kmail)
+
+DestroyModuleConfig rightp: *
+*rightp: Rows 5
+*rightp: Columns 1
+#*rightp: Colorset 20
+*rightp: Colorset 5
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmnd" `Exec exec wmnd`, Exec systemsettings)
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmgtemp" `Exec exec wmgtemp -g line -H 80 -w 75 -m 30 -M 90`)
+#*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmfreqview" `Exec exec wmfreqview -p /sys/devices/system/cpu/cpu0/cpufreq`, Exec terminal)
+#*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wminet" `Exec exec wminet`, Exec terminal)
+*rightp: (Frame 0, Padding 0 0, Icon CDE-icons/Fphome.l.pm.png, Action "Exec dolphin ~")
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmSMPmon" `Exec exec wmSMPmon`, Action Exec rxvt2 -geometry 200x80 -e htop)
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmacpi" `Exec exec wmacpi -w -f`)
+#*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmforkplop" `Exec exec wmforkplop`, Action Exec terminal)
+
+DestroyModuleConfig right: *
+*right: Font -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*right: Rows 15
+*right: Columns 7
+*right: Colorset 5
+#*right: (7x3+0+0, Frame 0, Icon 56x56/photo.png, Padding 0 0, Action Exec gwenview)
+#*right: (7x3+0+3, Frame 0, Icon 56x56/control.png, Padding 0 0, Action Exec systemsettings)
+#*right: (7x3+0+6, Frame 0, Padding 0 0, Icon 56x56/desktop.png, Action Exec dolphin )
+#*right: (7x3+0+9, Frame 0, Padding 0 0, Swallow(UseOld) "wmcpuload" `Exec exec wmcpuload -bw -p setiathome xsetiathome X`)
+#*right: (3x7+13+0, Frame 0, Padding 0 0, Swallow(UseOld) "wmnetload" `Exec exec wmnetload -i br0 -u 1 -w -b`)
+#*right: (7x3+0+12, Frame 0, Padding 0 0, Swallow(UseOld) "wmWeather" `Exec exec wmWeather --bc=#8e968a --lc=black --dc=black --wgc=black --tc=black -s UKKK -m`)
+#*right: (7x3+0+9, Frame -1, Padding 0 0, Swallow(UseOld) "wmsysmon" `Exec exec wmsysmon`)
+#*right: (7x3+0+12, Frame -1, Padding 0 0, Swallow(UseOld) "wmforkplop" `Exec exec wmforkplop`, Action Exec terminal)
+*right: (7x15+0+0, Frame 0, Padding 0 0, Swallow(UseOld) "rightp" "Module FvwmButtons rightp")
+
+DestroyModuleConfig up-left: *
+*up-left: Colorset 5
+*up-left: Rows 15
+*up-left: Columns 2
+*up-left: BoxSize fixed
+*up-left: (2x3+0+0, Frame 1, Icon panel/panel-arrow-left.xpm, Action WindowList rectangle $widthx$height+$left+$top@g -100m 0m)
+*up-left: (2x3+0+3, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MainMenu rectangle $widthx$height+$left+$top@g -100m 0m')
+#Action 'Menu MenuDocs rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-left: (2x3+0+6, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuDocs rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-left: (2x3+0+9, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuDevel rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-left: (2x3+0+12, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuInet rectangle $widthx$height+$left+$top@g -100m 0m')
+#*up-left: (1x2+0+15, Frame 1)
+
+
+DestroyModuleConfig up-right: *
+*up-right: Colorset 5
+*up-right: Rows 15
+*up-right: Columns 2
+*up-right: BoxSize fixed
+*up-right: (2x3+0+0, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuMedia rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-right: (2x3+0+3, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuSystem rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-right: (2x3+0+6, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuDisk rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-right: (2x3+0+9, Frame 1, Icon panel/panel-arrow-left.xpm, Padding 1 1, Action 'Menu MenuRLogins rectangle $widthx$height+$left+$top@g -100m 0m')
+*up-right: (2x3+0+12, Frame 1, Icon panel/panel-arrow-left.xpm, Action WindowList rectangle $widthx$height+$left+$top@g -100m 0m  CurrentDesk OnlyIcons)
+
+DestroyModuleConfig CD-panel:*
+
+#*CD-panel: Back DarkCyan
+*CD-panel: Colorset 5
+*CD-panel: Rows 32
+*CD-panel: Columns 9
+*CD-panel: BoxSize fixed
+
+*CD-panel: (9x6+0+0, Frame 2, Padding 0 0, Swallow "FvwmButton-CenterPanel" "Module FvwmButtons FvwmButton-CenterPanel")
+#*CD-panel: (2x1+0+0, Back aquamarine4, Frame 1, Icon panel/panel-menu.xpm, \
+#	Padding 0 0, Action 'Next (CDE-panel, CirculateHit) Menu FvwmWindowMenu rectangle $widthx$height+$left+$top@g o+0 -100m')
+#*CD-panel: (7x1+2+0, Back aquamarine4, Frame 0, Icon panel/panel-handle.xpm, \
+#	Padding 0 0, Action 'Next (CDE-panel, CirculateHit) Move')
+#*CD-panel: (2x1+0-0, Back aquamarine4, Frame 1, Icon panel/panel-iconify.xpm, \
+#	Padding 0 0, Action 'Next (CDE-panel, CirculateHit) Thumbnail')
+#*CD-panel: (7x1+2-0, Back aquamarine4, Frame 0, Icon panel/panel-handle.xpm, \
+#	Padding 0 0, Action 'Next (CDE-panel, CirculateHit) Move')
+*CD-panel: (2x13+0+6, Frame -1, Swallow "up-left" "Module FvwmButtons up-left")	
+*CD-panel: (2x13+0+19, Frame -1, Swallow "up-right" "Module FvwmButtons up-right")
+*CD-panel: (7x13+2+6, Frame 1, Swallow "left" "Module FvwmButtons left")
+*CD-panel: (7x13+2+19,Frame 1, Swallow "right" "Module FvwmButtons right")
+
+DestroyModuleConfig CDE-panel: *
+
+#*CDE-panel: geometry 932x85-40-0
+#*CDE-panel: geometry 1152x85+60-0
+#*CDE-panel: geometry 86x780-0+32
+#*CDE-panel: geometry 86x780-0+10
+*CDE-panel: geometry 86x769-0-0
+*CDE-panel: Colorset 5
+#*CDE-panel: Back aquamarine4
+*CDE-panel: Rows 9 
+*CDE-panel: Columns 49
+*CDE-panel: BoxSize fixed
+
+*CDE-panel: (49x9+0+0, Frame 1, Padding 1 3, Swallow "CD-panel" "Module FvwmButtons CD-panel")
+

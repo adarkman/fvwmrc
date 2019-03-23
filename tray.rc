@@ -1,0 +1,10 @@
+
+DestroyModuleConfig ftray: *
+*ftray: Font -*-new century schoolbook-medium-r-normal-*-12-*-*-*-*-*-iso10646-*
+*ftray: Columns 1
+*ftray: Colorset 5
+*ftray: BoxSize fixed
+#*ftray: Geometry 324x24+520-0
+*ftray: Geometry 324x24-0-0
+*ftray: (1x1, Frame 0,Swallow "stalonetray" "Exec stalonetray") 
+

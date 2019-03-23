@@ -1,0 +1,106 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 1 fg black, hi #a9a9a9, bg #a8a8a8
+#, RootTransparent buffer
+Colorset 4 fg black, hi #90b0b8, bg #a8a8a8
+#, RootTransparent buffer
+
+# Active window
+Colorset 3 fg white, bg #4888b8, hi #4888b8
+#, RootTransparent buffer, Tint black 70
+
+#Menu
+Colorset 2 fg white, bg #adaaad, hi gray100, fgsh black, RootTransparent buffer, Tint black 70
+#, RootTransparent buffer, Tint white 60
+
+#Window Title 
+#active
+Colorset 7 fg #3a6e84, hi #88a4a8, bg #4888b8
+#, RootTransparent buffer, Tint black 70
+#inactive
+Colorset 8 fg black, hi #a8a8a8, bg #a8a8a8
+#, RootTransparent buffer
+
+#Pager
+Colorset 9 fg DarkCyan, bg #005478, hi #90b0b8, RootTransparent buffer
+#, Tint #005478 50
+
+#CDE panel
+#Colorset 5 fg white, bg #3a6e84, hi #88a4a8
+Colorset 5 fg white, bg black, hi white , RootTransparent buffer 
+#, Tint black 50
+#, RootTransparent buffer
+#, Tint #acaaac 30
+#, Tint #3a6e84 50
+
+#IconMan
+Colorset 10 fg white, bg black, hi white, RootTransparent buffer
+
+#Border active
+Colorset 11 fg #4888b8, bg #4888b8, hi #4888b8
+#Border inactive 
+Colorset 12 fg #a8a8a8, bg #a8a8a8, hi #a8a8a8
+
+#Icon Title
+#Colorset 15 fg cyan, RootTransparent
+Colorset 15 fg white, bg black, hi white, RootTransparent
+
+#Applications :-)
+Colorset 20 fb black, bg #ebeadb
+
+ButtonStyle reset
+
+#ButtonStyle 1 Active Colorset 3
+#ButtonStyle 1 Inactive Colorset 1
+#ButtonStyle 2 Active Colorset 3
+#ButtonStyle 2 Inactive Colorset 1
+AddButtonStyle 1 ActiveUp Pixmap Amiga/button-close.png
+AddButtonStyle 1 ActiveDown Pixmap Amiga/button-close-pressed.png
+AddButtonStyle 1 InactiveUp Pixmap Amiga/button-close-inactive.png
+AddButtonStyle 1 InactiveDown Pixmap Amiga/button-close-pressed.png
+AddButtonStyle 2 ActiveUp Pixmap Amiga/button-min.png
+AddButtonStyle 2 ActiveDown Pixmap Amiga/button-min-pressed.png
+AddButtonStyle 2 InactiveUp Pixmap Amiga/button-min-inactive.png
+AddButtonStyle 2 InactiveDown Pixmap Amiga/button-min-pressed.png
+
+ButtonStyle All -- UseTitleStyle flat
+
+BorderStyle Active Colorset 11
+BorderStyle Inactive Colorset 12
+BorderStyle Active (-- raised NoInset)
+BorderStyle Inactive (-- raised NoInset)
+
+TitleStyle Active MultiPixmap \
+						Buttons TiledPixmap Amiga/title-bar.png, \
+						Main TiledPixmap Amiga/title-bar.png -- flat
+TitleStyle Inactive MultiPixmap \
+						Buttons TiledPixmap Amiga/title-bar-inactive.png, \
+						Main TiledPixmap Amiga/title-bar-inactive.png -- flat
+
+TitleStyle LeftJustified
+
+AddToFunc DeiconifyAndRearrange
++ C All (CurrentPage Iconic) PlaceAgain Icon
+
+Mouse 1 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 3 1       A       Close
+Mouse 3 2		A		Thumbnail
+#Iconify
+Mouse 2 2		A		WindowShade
+Mouse 1 2       A       Maximize 80 80
+
+Style * 		IndexedWindowName
+#, TitleAtLeft
+Style *			BorderWidth 4, HandleWidth 4
+Style *         MWMFunctions, MWMBorder
+Style *			Font Shadow=2:xft:Sans\ Serif:Bold:Italic:size=10:encoding=iso10646-1
+#Style *			IconBox 1000x110+145-27, IconFill left top
+#Style *			IconBox 120x1000-10+30, IconFill top left
+#Style *			IconBox 1000x200+1-1, IconFill left bottom
+#Style *			IconBox 500x1050-1-10, IconFill bottom right
+Style *			IconBox 500x550-1-285, IconFill bottom right
+
+#Key r		A	M	DeiconifyAndRearrange
+

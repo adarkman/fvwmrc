@@ -1,0 +1,88 @@
+
+CleanupColorsets
+
+# Inactive window
+#Colorset 1 fg DarkSlateGray, bg #5a5d5a, hi #b5b6b5
+Colorset 3 fg #709c58, bg #121a0e, hi #2b3625, sh #020a0e
+#Colorset 2 fg black, bg #808080, hi #b5b6b5
+Colorset 2 fg #305c18, bg #121a0e, hi #2b3625, sh #071014
+
+
+# Active window
+#Colorset 2 fg white, bg #63617b, hi #988a85
+#Colorset 1 fg white, bg #63617b, hi #988a85
+Colorset 1 fg #80Ac68, bg #121a0e, hi #2b3625, sh #071014
+#Menu
+#Colorset 2 fg white, bg #63617b
+
+
+#Window Title 
+#active
+#Colorset 7 fg white, bg #63617b, hi #988a85
+Colorset 7 fg #81ad69, bg #2a3524, hi #3b4635, sh #2a3524
+#inactive
+#Colorset 8 fg DarkSlateGray, bg #5a5d5a, hi #b5b6b5
+Colorset 8 fg #608c48, bg #121a0e, hi #2b3625, sh #121a0e
+
+#Pager
+Colorset 9 fg #81ad69, bg #2a3524, hi #2b3625, sh #121a0e
+#, RootTransparent buffer, Tint #a59e84 40
+
+# CDE panel
+Colorset 5 fg #81ad69, bg #121a0e, hi #2b3625, sh #020a0e
+#, RootTransparent buffer, Tint #a59e84 40
+
+#Icon Title
+Colorset 15 fg #81ad69, bg #121a0e
+Colorset 6 fg #81ad69, bg #121a0e
+# Icon for IconManager
+Colorset 16 fg #121a0e, bg #121a0e, hi #121a0e, sh #121a0e
+Colorset 17 fg #81ad69, bg #2a3524
+
+# MenuBar
+SetEnv cs-menu-active 21
+SetEnv cs-menu-inactive 20
+Colorset 20 fg #507c38, bg #121a0e, hi #2b3625, sh #020a0e
+Colorset 21 fg #81ad69, bg #2a3524, hi #3b4635, sh #2a3524
+
+# FvwmScript Widgets
+Colorset 30 fg #a1cd89, bg #121a0e, hi #2b3625, sh 121a0e, RootTransparent
+Colorset 31 fg #81ad69, bg #121a0e, hi #2b3625, sh 121a0e, RootTransparent
+
+ButtonStyle reset
+
+AddButtonStyle All Colorset 8 
+ButtonStyle 1 MiniIcon -- flat
+ButtonStyle 6 AllUp Pixmap Borg/minimize_inactive.svg:16x16 -- flat
+ButtonStyle 6 AllDown Pixmap Borg/minimize.svg:16x16 -- flat
+ButtonStyle 4 AllUp Pixmap Borg/maximize_inactive.svg:16x16 -- flat
+ButtonStyle 4 AllDown Pixmap Borg/maximize.svg:16x16 -- flat
+ButtonStyle 2 AllUp Pixmap Borg/close_inactive.svg:16x16 -- flat
+ButtonStyle 2 AllDown Pixmap Borg/close_down.svg:16x16 -- flat
+
+
+
+TitleStyle ActiveUp Colorset 7 -- flat
+TitleStyle Inactive Colorset 8 -- flat
+#TitleStyle Centered
+TitleStyle LeftJustified MinHeight 22
+
+BorderStyle Active Colorset 1 -- raised
+BorderStyle Inactive Colorset 3 -- raised
+
+Mouse 0 1       A       Menu FvwmWindowMenu Close
+Mouse 3 1       A       Close
+Mouse 0 6       A       Thumbnail
+Mouse 0 4       A       Maximize 90 90
+Mouse 0 2 		A		Close
+
+Style * 		TitleAtLeft
+Style *			IndexedWindowName
+Style *			BorderWidth 2, HandleWidth 2
+#Style *         MWMFunctions, MWMBorder, MWMButtons
+#Style *			Font Shadow=0:xft:Teams:Bold:Italic:size=9:encoding=iso10646-1
+#Style *			IconBox 500x650-1-90, IconFill bottom right
+#Style *			IconBox 800x110+20-1, IconFill left bottom
+#Style *			IconBox 150x800-1+30, IconFill top right
+#Style *				IconBox 1152x130+1+1, IconFill right top
+

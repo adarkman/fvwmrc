@@ -1,0 +1,72 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 1 fg white, bg #e7e3e7, hi white
+Colorset 4 fg white, bg #e7e3e7, hi white
+
+# Active window
+Colorset 3 fg black, bg #e7e3e7, hi white
+
+#Menu
+Colorset 2 fg black, bg #e7e3e7
+
+
+#Window Title 
+#active
+Colorset 7 fg black, bg LightSkyBlue, hi white
+#inactive
+Colorset 8 fg Blue, bg LightSkyBlue, hi white
+
+ButtonStyle reset
+
+ButtonStyle 1 ActiveUp Pixmap Metal/menu-a.png 
+ButtonStyle 1 ActiveDown Pixmap Metal/menu-p.png 
+ButtonStyle 1 Inactive Pixmap Metal/menu-i.png 
+ButtonStyle 6 ActiveUp Pixmap Metal/min-a.png
+ButtonStyle 6 ActiveDown Pixmap Metal/min-p.png
+ButtonStyle 6 Inactive Pixmap Metal/min-i.png
+ButtonStyle 4 ActiveUp Pixmap Metal/max-a.png
+ButtonStyle 4 ActiveDown Pixmap Metal/max-p.png
+ButtonStyle 4 Inactive Pixmap Metal/max-i.png
+ButtonStyle 2 ActiveUp Pixmap Metal/close-a.png
+ButtonStyle 2 ActiveDown Pixmap Metal/close-p.png
+ButtonStyle 2 Inactive Pixmap Metal/close-i.png
+
+ButtonStyle All -- UseTitleStyle flat
+
+TitleStyle ActiveUp MultiPixmap Main AdjustedPixmap Metal/title-big.png, \
+		Buttons TiledPixmap Metal/title-under.xpm
+
+
+#TitleStyle ActiveUp MultiPixmap LeftOfText AdjustedPixmap Metal/title-under.xpm, \
+#						RightOfText ShrunkPixmap Metal/title-right.xpm, \
+#						UnderText AdjustedPixmap Metal/title-under.xpm, \
+#						Buttons TiledPixmap Metal/title.xpm, \
+#						Main TiledPixmap Metal/title.xpm -- flat
+#TitleStyle ActiveDown MultiPixmap LeftOfText AdjustedPixmap Metal/title-under.xpm, \
+#						RightOfText AdjustedPixmap Metal/title-right.xpm, \
+#						UnderText AdjustedPixmap Metal/title-under.xpm, \
+#						Buttons TiledPixmap Metal/title.xpm, \
+#						Main TiledPixmap Metal/title.xpm -- flat
+#TitleStyle Inactive MultiPixmap LeftOfText AdjustedPixmap Metal/title-under.xpm, \
+#						RightOfText AdjustedPixmap Metal/title-right.xpm, \
+#						UnderText AdjustedPixmap Metal/title-under.xpm, \
+#						Buttons TiledPixmap Metal/title.xpm, \
+#						Main TiledPixmap Metal/title.xpm -- flat
+TitleStyle LeftJustified
+
+BorderStyle Active TiledPixmap graphite/bg.png
+BorderStyle Inactive TiledPixmap graphite/bg.png 
+BorderStyle Active Colorset 3 -- raised NoInset
+BorderStyle Inactive Colorset 1 -- sunk HiddenHandles
+
+
+Mouse 0 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 0 6       A       Iconify
+Mouse 0 4       A       Maximize 90 90
+Mouse 0 2 		A		Close
+
+Style * 		TitleAtLeft, IndexedWindowName
+Style *			BorderWidth 3, HandleWidth 1
+

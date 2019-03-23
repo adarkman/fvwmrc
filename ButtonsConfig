@@ -1,0 +1,86 @@
+DestroyModuleConfig FvwmButtons
+DestroyModuleConfig FvwmButtons2
+
+
+*FvwmButtons2: Colorset 6
+*FvwmButtons2: Columns 1
+*FvwmButtons2: Font None
+*FvwmButtons2: Frame 0
+*FvwmButtons2: Geometry 320x64+2+2
+*FvwmButtons2: Padding 0 0
+*FvwmButtons2: Rows 1
+
+*FvwmButtons2: (1x1+0+0, \
+			Swallow(UseOld) wmtimer 'Exec wmtimer')
+*FvwmButtons2: (1x1+1+0, \
+			Swallow(UseOld) cputnik 'Exec cputnik -t 1')
+*FvwmButtons2: (1x1+2+0, \
+			Swallow(UseOld) wmnd 'Exec wmnd')
+*FvwmButtons2: (1x1+3+0, \
+			Swallow(UseOld) wmweather 'Exec wmweather -s UKKK -m')
+*FvwmButtons2: (1x1+4+0, \
+			Swallow(UseOld) wmcube 'Exec wmcube -o /usr/share/wmcube/')
+
+DestroyModuleConfig IPanel
+
+*IPanel: Colorset 8
+*IPanel: Columns 1
+*IPanel: Font None
+*IPanel: Frame 0
+*IPanel: Geometry 10x64-0-0
+*IPanel: Padding 0 0
+*IPanel: Rows 1
+
+*IPanel: (1x1+0+0, Panel (left,indicator,delay 0,steps 0) \
+			FvwmButtons2 "Module FvwmButtons FvwmButtons2")
+
+########################################################### Pager panel
+DestroyModuleConfig CommandPanel
+
+*CommandPanel: Colorset 8
+*CommandPanel: Columns 13
+*CommandPanel: Rows 7
+*CommandPanel: Font xft:Lucida\ MAC:Regular:Roman:size=10:encoding=iso10646-1:Shadow=1
+*CommandPanel: Frame 0
+*CommandPanel: Geometry 250x80-0+0
+*CommandPanel: Padding 1 1
+*CommandPanel: BoxSize fixed
+
+*CommandPanel: (5x2+1+1, Title "Shutdown", Action `Exec exec dcop ksmserver ksmserver logout 0 2 0`)
+*CommandPanel: (5x2+1+4, Title "Restart", Action `Exec exec fvwm2 -r`)
+*CommandPanel: (5x2+7+1, Title "Save", Action `Exec exec dcop ksmserver ksmserver saveCurrentSession`)
+*CommandPanel: (5x2+7+4, Title "Lock", Action `Exec exec dcop kdesktop KScreensaverIface lock`)
+
+DestroyModuleConfig PagerPanel
+
+*PagerPanel: Colorset 8
+*PagerPanel: Columns 48
+*PagerPanel: Rows 1
+*PagerPanel: Font none
+*PagerPanel: Frame 0
+*PagerPanel: Geometry 500x80-0+0
+*PagerPanel: Padding 5 5
+*PagerPanel: BoxSize fixed
+
+*PagerPanel: (2x1+0+0, Panel (left,indicator,delay 0,steps 0, position top -10 0) \
+			FvwmButtons2 "Module FvwmButtons FvwmButtons2")
+*PagerPanel: (12x1+2+0, Frame 0, Padding 0 0, \
+			Swallow(UseOld) crackberg 'Exec exec /usr/lib/misc/xscreensaver/crackberg -wire -boring -letterbox -geometry 85x75'
+*PagerPanel: (18x1+14+0, Frame 0, Padding 3 3,\
+			Swallow(UseOld) FvwmPager 'Module FvwmPager 0 5')
+*PagerPanel: (16x1+32+0, Frame 0, \
+			Swallow(UseOld) CommandPanel 'Module FvwmButtons CommandPanel')
+
+DestroyModuleConfig PagerPanel2
+
+*PagerPanel2: Colorset 8
+*PagerPanel2: Columns 1
+*PagerPanel2: Rows 1
+*PagerPanel2: Font none
+*PagerPanel2: Frame 0
+*PagerPanel2: Geometry 500x80-0+0
+*PagerPanel2: BoxSize fixed
+
+*PagerPanel2: (1x1+0+0, \
+			Swallow(UseOld) PagerPanel 'Module FvwmButtons PagerPanel')
+

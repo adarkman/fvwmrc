@@ -1,0 +1,119 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 2 fg #0D161E, hi #dddddd, bg black
+#Colorset 4 fg darkcyan, hi #dddddd, bg black
+
+# Active window
+Colorset 1 fg white, bg #0D161E, hi #dddddd, sh #dddddd
+
+#Menu
+SetEnv cs-menu-inactive 3
+SetEnv cs-menu-active 4
+Colorset 3 fg cyan, bg black, hi black, RootTransparent, Tint black 70
+#, RootTransparent buffer, Tint white 60
+# Menu hilight
+Colorset 4 fg white, bg #4BC300
+
+#Window Title 
+#active
+Colorset 9 fg cyan, hi white, sh black, bg black
+#inactive
+Colorset 10fg darkcyan, hi #90b0b8, bg black
+
+#Pager
+Colorset 7 fg white, bg white, hi white, sh white, RootTransparent, Tint black 30
+Colorset 5 fg darkcyan, bg gray20, hi #555555, sh #333333, RootTransparent, Tint black 80
+#Colorset 19 fg white, bg darkcyan, hi white, sh white
+#, Tint #005478 50
+
+#CDE panel
+Colorset 8 fg white, bg black, hi black, sh black, RootTransparent, Tint black 30
+#, Tint #adaaad 40
+#, Tint #3a6e84 50
+
+#IconMan
+Colorset 11 fg white, bg black, hi darkcyan, sh darkcyan, RootTransparent buffer
+# Active IconMan
+Colorset 12 fg white, bg black, hi green, sh green
+
+#Border active
+Colorset 21 fg white, bg black, hi black
+#Border inactive 
+Colorset 22 fg cyan, bg gray 60, hi gray60
+
+#Icon Title
+Colorset 6 fg white, RootTransparent
+
+# Applications
+Colorset 20 fg black, bg white, hi white, sh white, RootTransparent
+Colorset 21 fg white, bg white, hi black, RootTransparent
+
+# FvwmScript
+Colorset 31 fg white, bg #979797, fgsh #909090, RootTransparent
+Colorset 30 fg white, bg #979797, fgsh #909090, RootTransparent
+
+
+ButtonStyle reset
+
+ButtonStyle 1 Active Colorset 3 -- flat 
+ButtonStyle 1 Inactive Colorset 1 -- flat 
+ButtonStyle 3 Active Colorset 3 -- flat
+ButtonStyle 3 Inactive Colorset 1 -- flat 
+ButtonStyle 1 ActiveUp Pixmap glass/close.png
+ButtonStyle 1 ActiveDown Pixmap glass/close_press.png
+ButtonStyle 1 InactiveUp Pixmap glass/close_inac.png
+ButtonStyle 1 InactiveDown Pixmap glass/close_press.png
+ButtonStyle 3 ActiveUp Pixmap glass/max.png
+ButtonStyle 3 ActiveDown Pixmap glass/max_press.png
+ButtonStyle 3 InactiveUp Pixmap glass/max_inac.png
+ButtonStyle 3 InactiveDown Pixmap glass/max_press.png
+
+ButtonStyle All -- UseTitleStyle flat
+
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 1
+BorderStyle Active (-- flat)
+BorderStyle Inactive (-- flat)
+
+TitleStyle Active Colorset 7 -- flat
+TitleStyle Inactive Colorset 8 -- flat
+#TitleStyle Inactive MultiPixmap \
+#						Buttons TiledPixmap button/title2.png, \
+#						Main TiledPixmap button/title2.png -- flat
+TitleStyle ActiveUp MultiPixmap \
+						Main AdjustedPixmap glass/title-active.png \
+						Buttons AdjustedPixmap glass/title-active.png
+TitleStyle ActiveDown MultiPixmap \
+						Main AdjustedPixmap glass/title-active-sh.png \
+						Buttons AdjustedPixmap glass/title-active-sh.png
+TitleStyle Inactive MultiPixmap \
+						Main AdjustedPixmap glass/title-inactive.png \
+						Buttons AdjustedPixmap glass/title-inactive.png
+#						LeftEnd AdjustedPixmap glass/left-active.png \
+#						RightEnd AdjustedPixmap glass/right-active.png \
+#						LeftEnd AdjustedPixmap glass/title_l-active.png \
+#						RightEnd AdjustedPixmap glass/title_r-active.png \
+
+TitleStyle RightJustified
+TitleStyle -- flat
+
+AddToFunc DeiconifyAndRearrange
++ C All (CurrentPage Iconic) PlaceAgain Icon
+
+Mouse 1 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 3 1       A       Close
+Mouse 3 3		A		Thumbnail
+Mouse 2 3		A		WindowShade
+Mouse 1 3       A       Maximize 90 90
+
+Style * 		IndexedWindowName
+Style *			BorderWidth 1, HandleWidth 1
+Style *         MWMFunctions, MWMBorder
+Style *			Font xft:Comic\ Sans\ MS:Italic:size=10:encoding=iso10646-1
+#Style *			IconBox 800x110+3-3, IconFill left top
+Style *			IconBox 150x800-5+40, IconFill top right
+
+Key r		A	M	DeiconifyAndRearrange
+

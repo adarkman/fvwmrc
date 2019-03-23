@@ -1,0 +1,77 @@
+
+Emulate Mwm
+####################################### Colorsets
+# Active window
+Colorset 1 fg white, bg #a8a8a8
+# Inactive window 
+Colorset 2 fg white, bg #a8a8a8
+#, RootTransparent buffer, Tint #838183 80, IconAlpha 80
+
+# Active Title
+Colorset 9 fg white, bg black
+# Inactive Title
+Colorset 10 fg white, bg #7f7f7f
+
+# Menu base
+Colorset 3 fg black, bg #a8a8a8
+#, RootTransparent, Tint black 50
+# Menu hilight
+Colorset 4 fg white, bg #4BC300
+
+# Pager
+Colorset 7 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+# Inactive window in pager
+#Colorset 5 fg white, bg #104c58, RootTransparent, Tint #104c58 0
+Colorset 5 fg white, bg #a8a8a8
+#, sh black, hi black
+#, RootTransparent
+
+# IconMan
+Colorset 11 fg white, bg black, RootTransparent, Tint black 50
+# Active IconMan
+Colorset 12 fg white, bg black
+
+# Icon title
+Colorset 6 fg white, bg blue, RootTransparent, Tint #104c58 20
+
+# Panels
+Colorset 8 fg white, bg #104C58 
+#, RootTransparent buffer, Tint #838183 100
+# Widgets
+Colorset 30 fg black, bg #979797, fgsh #909090, RootTransparent
+Colorset 31 fg black, bg #979797, fgsh #909090, RootTransparent
+
+####################################### Titles/Borrders/Buttons
+TitleStyle LeftJustified Height 25
+TitleStyle ActiveUp Colorset 9
+TitleStyle ActiveDown Colorset 9
+TitleStyle InactiveUp Colorset 10
+TitleStyle InactiveDown Colorset 10
+TitleStyle Inactive -- sunk
+TitleStyle Active -- sunk
+
+BorderStyle Active Colorset 1
+BorderStyle Inactive Colorset 2
+BorderStyle -- raised
+
+AddButtonStyle All -- UseTitleStyle 
+AddButtonStyle All Active (Colorset 1) \
+			Inactive (Colorset 2)
+AddButtonStyle 1 Vector 5 15x45@1 85x45@1 85x55@0 15x55@0 15x45@1 
+
+AddButtonStyle 2 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+
+AddButtonStyle 4 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+
+Style * BorderWidth 6, HandleWidth 6
+Style * Handles
+
+Mouse 1		1	N	Popup FvwmWindowMenu
+Mouse 3		1	N	Close
+Mouse 3		2	M	Destroy
+Mouse 1		2	N	Maximize 100 100
+Mouse 3		2	N	Maximize 90 88
+Mouse 2		2	N	Maximize 0 100
+Mouse 3		4 	N	Thumbnail
+Mouse 1		4 	N	Thumbnail
+

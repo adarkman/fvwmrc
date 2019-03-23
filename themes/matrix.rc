@@ -1,0 +1,116 @@
+
+CleanupColorsets
+
+# Inactive window
+Colorset 2 fg #009F00, hi black, bg black
+#Colorset 4 fg black, hi #dddddd, bg #dddddd
+
+# Active window
+Colorset 1 fg green, bg black, hi black, sh black
+
+# Borders
+Colorset 14 fg black, bg black, hi black
+
+#Menu
+Colorset 3 fg green, bg #202020, hi black, RootTransparent, Tint black 50
+#, RootTransparent buffer, Tint white 60
+# Menu hilight
+Colorset 4 fg black, bg green, hi gray100
+
+#Window Title 
+#active
+Colorset 17 fg green, hi black, sh black, bg #181818
+#inactive
+Colorset 18 fg darkgreen, hi black, bg #313131
+
+#Pager
+Colorset 7 fg white, bg white, hi white, sh white, RootTransparent, Tint black 30
+#, Tint #005478 50
+
+#CDE panel
+Colorset 8 fg white, bg #3a6e84, hi white, sh white, RootTransparent, Tint black 0
+#, Tint #adaaad 40
+#, Tint #3a6e84 50
+
+#IconMan
+Colorset 11 fg white, bg black, hi white, RootTransparent buffer
+# Avtive IconMan
+Colorset 11 fg white, bg black, hi white
+
+#Border active
+Colorset 21 fg black, bg black, hi black
+#Border inactive 
+Colorset 22 fg black, bg black, hi black
+
+#Icon Title
+Colorset 6 fg green, RootTransparent, Tint #104c58 20
+
+# Applications
+Colorset 20 fg black, bg white, hi white, sh white, RootTransparent
+Colorset 21 fg white, bg white, hi black, RootTransparent
+
+ButtonStyle reset
+
+ButtonStyle 1 Active Colorset 2 -- flat 
+ButtonStyle 1 Inactive Colorset 1 -- flat 
+ButtonStyle 3 Active Colorset 2 -- flat
+ButtonStyle 3 Inactive Colorset 1 -- flat 
+ButtonStyle 1 ActiveUp Pixmap matrix/close_active.png
+ButtonStyle 1 ActiveDown Pixmap matrix/close_clicked.png
+ButtonStyle 1 InactiveUp Pixmap matrix/close_normal.png
+ButtonStyle 1 InactiveDown Pixmap matrix/close_clicked.png
+ButtonStyle 3 ActiveUp Pixmap matrix/menu_active.png
+ButtonStyle 3 ActiveDown Pixmap matrix/menu_clicked.png
+ButtonStyle 3 InactiveUp Pixmap matrix/menu_normal.png
+ButtonStyle 3 InactiveDown Pixmap matrix/menu_clicked.png
+
+ButtonStyle All -- flat
+
+BorderStyle Active Colorset 14
+BorderStyle Inactive Colorset 14
+BorderStyle Active (-- flat)
+BorderStyle Inactive (-- flat)
+
+TitleStyle Active Colorset 17 -- flat
+TitleStyle Inactive Colorset 18 -- flat
+#TitleStyle Inactive MultiPixmap \
+#						Buttons TiledPixmap button/title2.png, \
+#						Main TiledPixmap button/title2.png -- flat
+TitleStyle Inactive MultiPixmap \
+						Main AdjustedPixmap matrix/top-i.png \
+						LeftEnd AdjustedPixmap matrix/left-i.png \
+						RightEnd AdjustedPixmap matrix/right-i.png \
+						Buttons Colorset 7
+TitleStyle Active MultiPixmap \
+						Main AdjustedPixmap matrix/top.png \
+						LeftEnd AdjustedPixmap matrix/left.png \
+						RightEnd AdjustedPixmap matrix/right.png \
+						Buttons Colorset 7
+
+TitleStyle RightJustified
+TitleStyle -- flat
+
+AddToFunc DeiconifyAndRearrange
++ C All (CurrentPage Iconic) PlaceAgain Icon
+
+Mouse 1 1       A       Menu MenuFvwmWindowOps2 Close
+Mouse 3 1       A       Close
+Mouse 3 3		A		Thumbnail
+Mouse 2 3		A		WindowShade
+Mouse 1 3       A       Maximize 90 90
+
+Style * 		IndexedWindowName
+Style *			BorderWidth 1, HandleWidth 1
+Style *         MWMFunctions, MWMBorder
+Style *			Font xft:Comic\ Sans\ MS:Italic:size=10:encoding=iso10646-1
+#Style *			IconBox 800x110+3-3, IconFill left top
+#Style *			IconBox 150x800-5+160, IconFill top right
+Style *			IconBox 150x800-25+40, IconFill top right
+
+Key r		A	M	DeiconifyAndRearrange
+
+
+MenuStyle * BorderWidth 1
+MenuStyle * TrianglesSolid, TrianglesUseFore
+MenuStyle * Hilight3DOff
+
