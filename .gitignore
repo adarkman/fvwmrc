@@ -3,4 +3,6 @@
 .fs*
 .wlist
 session-save/
+.FvwmConsole-History
+.FvwmConsole-Socket
 
