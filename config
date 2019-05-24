@@ -22,7 +22,7 @@ EWMHNumberOfDesktops 6
 #EWMHBaseStruts 0 86 0 0
 #EWMHBaseStruts 0 0 24 0
 # Left IconBox
-EWMHBaseStruts 82 0 0 0
+EWMHBaseStruts 82 0 88 0
 
 DesktopSize 1x1
 
@@ -42,8 +42,8 @@ OpaqueMoveSize unlimited
 #SetEnv CONSOLE 'konsole --profile gray -e screen '
 #SetEnv TERMINAL 'konsole --profile gray -e screen '
 SetEnv SIMPLE_CONSOLE 'rxvt2 '
-SetEnv CONSOLE 'rxvt2 -e screen '
-SetEnv TERMINAL 'rxvt2 -e screen '
+SetEnv CONSOLE 'rxvt2 -e tmux '
+SetEnv TERMINAL 'rxvt2 -e tmux '
 ######################################## GlobalStyle
 ### 'State 10': Mark for tiling
 ### 'State 11': windows ignored by M+Left, M+Right
@@ -178,6 +178,9 @@ Style IconBox 		WindowListSkip, State 11, !MwmBorder, BorderWidth 0, HandleWidth
 Style IconBoxLeft	WindowListSkip, State 11, StaysOnTop, NeverFocus, MwmBorder, BorderWidth 2, HandleWidth 2, UseDecor IconboxDecor, Colorset 16
 
 Style wmgtemp		WindowListSkip, State 11, StaysOnTop, NeverFocus, NoTitle, BorderWidth 0, HandleWidth 0, Sticky
+Style Firefox		StartsOnDesk 3
+# Force Main Remmina window to be decorated
+Style org.remmina.Remmina	!MWMDecor
 
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
@@ -502,7 +505,7 @@ AddToFunc PrevWindowGlobal
 
 Key Right	A	M	NextWindow
 #Key q		A	M	NextWindow
-#Key q 		A	M	WindowList (!Iconic, CurrentDesk) Function RaiseFocus
+Key q 		A	M	WindowList (!Iconic, CurrentDesk) root 5p 30p Alphabetic Function RaiseFocus
 Key Left	A	M	PrevWindow
 Key Up		A	M	NextWindowGlobal
 Key Down	A	M	PrevWindowGlobal
@@ -538,6 +541,7 @@ Key a		WT	SC	Maximize 92 95
 Key a 		WT	SM	Maximize 0 100 
 #Key a		WT	M	Maximize 1190p 97
 Key a		WT	M	Maximize 100 100
+key	a		WT	4	Maximize grow grow
 #Key f		W	M	MaxAndMove
 Key f		WT	M	Maximize ewmhiwa 100 100
 Key w		WT	M	Close
@@ -545,7 +549,7 @@ Key e		WT	M	Thumbnail
 #Key e		W	M	Iconify
 Key Escape	WT	M	Menu FvwmWindowMenu
 Key g		WT 	M	Move
-Key r		WT 	M	Resize
+Key r		WT 	M	Resize 
 
 DestroyFunc CenterWindow
 AddToFunc   CenterWindow
@@ -592,10 +596,13 @@ AddToFunc MRT
 + I Maximize ewmhiwa True $0 $1
 + I Move screen c $2 $3
 
-Key p		W	SC	MRT 49 49 -0 +0
-Key m		W	SC	MRT 49 49 -0 -0
-Key j		W	SC	MRT 50 100 +0 +0
-Key l		W	SC	MRT 50 100 -0 +0
+Key o		WT	SC	MRT 47 47 +0 +0
+Key p		WT	SC	MRT 47 47 -0 +0
+Key m		WT	SC	MRT 47 47 -0 -0
+Key n		WT	SC	MRT 47 47 +0 -0
+Key j		WT	SC	MRT 47 90 +0 +0
+Key l		WT	SC	MRT 47 90 -0 +0
+Key t		WT	4	FvwmRearrange -tile -v 0 95 -mn 2
 
 
 DestroyFunc IconifyTerm
@@ -625,7 +632,10 @@ AddToFunc HideCDE
 Key f12		A	N	HideCDE
 Key f11		A	N	ShowOrHideTerm fterm
 Key f1		A	M	Menu MainMenu root 5p 30p TearOffImmediately
-Key f3		A	M	Exec exec ksysguard
+Key	f2		A	4	Exec exec /usr/local/bin/i3menu-run
+Key	f2		A	M	Exec exec ${TERMINAL}
+Key	f5		A	M	Exec exec i3menu-vw
+#Key Escape	A	C	Exec exec ${SIMPLE_CONSOLE} -title System -geometry 120x40 -e gotop
 
 DestroyFunc RunOrRaise
 AddToFunc RunOrRaise
@@ -788,6 +798,7 @@ AddToFunc StartFunction
 #+ I Exec exec $HOME/bin/rxvt2 -fg black -name top -geometry 100x40+90+30 -e htop
 #+ I Exec exec stalonetray
 #+ I LayerIconify 0 2 true
++ | Exec $HOME/.fvwm/ClosePlasmaDesktopWindow
 #+ I HideCDE
 #+ I Module FvwmButtons IconBoxLeft
 #+	I	Module FvwmScript DriveInn
