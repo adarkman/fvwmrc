@@ -1,5 +1,5 @@
 #! /bin/bash
 
-PLASMA_ID = `wmctrl -l | grep "Рабочий стол по умолчанию — Plasma" | cut -d' ' -f1`
+PLASMA_ID=`wmctrl -l | grep "Рабочий стол по умолчанию — Plasma" | cut -d' ' -f1`
 xdotool windowclose $PLASMA_ID
 

@@ -621,7 +621,7 @@ Key o		WT	SC	MRT 47 47 +0 +0
 Key p		WT	SC	MRT 47 47 -0 +0
 Key m		WT	SC	MRT 47 47 -0 -0
 Key n		WT	SC	MRT 47 47 +0 -0
-Key j		WT	SC	MRT 47 90 +0 +0
+Key j		WT	SC	MRT 47 83 +0 +0
 Key l		WT	SC	MRT 47 90 -0 +0
 Key t		WT	4	FvwmRearrange -tile -v 0 95 -mn 2
 

@@ -1,6 +1,6 @@
 DestroyModuleConfig IconManager: *
 
-*IconManager: Font Shadow=1:xft:CourierC:Regular:size=12:encoding=iso10646-1
+*IconManager: Font Shadow=1:xft:CourierC:Regular:size=10:encoding=iso10646-1
 *IconManager: Colorset 10
 *IconManager: FocusColorset 9 
 *IconManager: IconColorset $[cs-menu-inactive]
