@@ -28,7 +28,7 @@ EWMHBaseStruts 82 0 88 0
 # M+Up/Down - to swith (see mutch below)
 DesktopSize 4x1
 
-#SnapGrid 10 10
+SnapGrid 10 10
 #SnapAttraction 5 All
 EdgeScroll 0 0
 SnapAttraction 20 SameType Screen
@@ -652,8 +652,8 @@ AddToFunc HideCDE
 Key f12		A	N	HideCDE
 Key f11		A	N	ShowOrHideTerm fterm
 Key f1		A	M	Menu MainMenu root 5p 30p TearOffImmediately
-Key	f2		A	4	Exec exec /usr/local/bin/i3menu-run
-Key	f2		A	M	Exec exec ${TERMINAL}
+Key	f2		A	M	Exec exec /usr/local/bin/i3menu-run
+Key	f2		A	4	Exec exec ${TERMINAL}
 Key	f5		A	M	Exec exec i3menu-vw
 #Key Escape	A	C	Exec exec ${SIMPLE_CONSOLE} -title System -geometry 120x40 -e gotop
 
