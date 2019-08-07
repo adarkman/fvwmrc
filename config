@@ -181,6 +181,7 @@ Style wmgtemp		WindowListSkip, State 11, StaysOnTop, NeverFocus, NoTitle, Border
 Style Firefox		StartsOnDesk 3
 # Force Main Remmina window to be decorated
 Style org.remmina.Remmina	!MWMDecor
+Style FvwmIconMan 	StaysOnTop, NoTitle, Borders, Sticky, WindowListSki
 
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
@@ -445,7 +446,16 @@ AddToFunc DeThumbnail
 + I Iconify false
 + I WarpToWindow 10 10
 + I Focus
++ I	Layer default
 + I All (CurrentPage, Iconic) PlaceAgain Icon
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I DeThumbnail
+#+ I Iconify off
+#+ I FlipFocus
+#+ I Raise
+#+ I WarpToWindow 5p 5p
 
 ####################################### Key/Mouse bindings
 DestroyFunc TransitMove
@@ -772,6 +782,9 @@ Read tray.rc
 ####################################### Fast terminal
 Read fterm.rc
 
+####################################### IconManager
+Read IconMan
+
 ####################################### Screen Decor
 #Read TopLine
 ####################################### Startup
@@ -785,6 +798,7 @@ AddToFunc StartFunction
 + I SendToModule IconBox PressButton IconsButton
 #+ I Module FvwmButtons ftray
 + I Module FvwmButtons fterm
++ I Module FvwmIconMan IconManager
 #+ I Module FvwmButtons FvwmButton-CenterPanel
 #+ I Module FvwmButtons PagerPanel2
 #+ I Exec exec /usr/lib/misc/xscreensaver/sonar -font 5x7 -ping $HOME/.ssh/known_hosts -geometry 250x250+0+0
