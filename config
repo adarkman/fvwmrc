@@ -24,7 +24,9 @@ EWMHNumberOfDesktops 6
 # Left IconBox
 EWMHBaseStruts 82 0 88 0
 
-DesktopSize 1x1
+# VW+GemStone/S needs at least 2 page to be comfortable
+# M+Up/Down - to swith (see mutch below)
+DesktopSize 4x1
 
 #SnapGrid 10 10
 #SnapAttraction 5 All
@@ -181,7 +183,8 @@ Style wmgtemp		WindowListSkip, State 11, StaysOnTop, NeverFocus, NoTitle, Border
 Style Firefox		StartsOnDesk 3
 # Force Main Remmina window to be decorated
 Style org.remmina.Remmina	!MWMDecor
-Style FvwmIconMan 	StaysOnTop, NoTitle, Borders, Sticky, WindowListSki
+Style FvwmIconMan 	StaysOnTop, NoTitle, Borders, Sticky, WindowListSkip
+Style PagePager 	NoTitle, Sticky, Borders, BorderWidth 3, HandleWidth 3, StaysOnTop, WindowListSkip
 
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
@@ -395,6 +398,13 @@ AddToMenu MoveToDeskMenu	"Move to desk"	Title
 +	"Desk &5"%OS-L/16x16/apps/kuickshow.png%						MoveToDesk 0 4
 +	"Desk &6"%OS-L/16x16/apps/kcontrol3.png%						MoveToDesk 0 5
 
+DestroyMenu MoveToPageMenu
+AddToMenu MoveToPageMenu	"Move to page"	Title
++	"Page &1"						MoveToPage 0 0
++	"Page &2"						MoveToPage 1 0
++	"Page &3"						MoveToPage 2 0
++	"Page &4"						MoveToPage 3 0
+
 DestroyMenu FvwmWindowMenu
 AddToMenu FvwmWindowMenu
 + "$[gt.&Move]"%mini.move1.xpm%              Move
@@ -409,7 +419,8 @@ AddToMenu FvwmWindowMenu
 + "$[gt.(Un)&Stick]"%mini.stick.xpm%         Stick
 + "$[gt.(Un)Ma&ximize]"%mini.maximize1.xpm%  Maximize
 + "" Nop
-+ "Go to &Desk"		Popup MoveToDeskMenu
++ "Move to &Desk"		Popup MoveToDeskMenu
++ "Move to &Page"		Popup MoveToPageMenu
 + "" Nop
 + "$[gt.&Close]"%mini.cross.xpm%             Close
 + "$[gt.&Destroy]"%mini.crosbone.xpm%        Destroy
@@ -590,8 +601,8 @@ Key 3		A	M	Desk 0 2
 Key 4		A	M	Desk 0 3
 Key 5		A	M	Desk 0 4
 Key 6		A	M	Desk 0 5
-#Key Up		A	M	GotoPage 0 0
-#Key Down	A	M	GotoPage 0 1
+Key Up		A	M	GotoPage wrapx +1p 0
+Key Down	A	M	GotoPage wrapx -1p 0
 
 Key 1		W	SM	MoveToDesk 0 0
 Key 2		W	SM	MoveToDesk 0 1
@@ -634,8 +645,7 @@ AddToFunc ShowOrHideTerm
 
 DestroyFunc HideCDE
 AddToFunc HideCDE
-+ I All (CDE-panel, !Iconic) Raise
-#+ I All (CDE-panel, !Iconic) Thumbnail
++ I All (CDE-panel, !Iconic) Thumbnail
 + I TestRc (Match) Break
 + I All (CDE-panel, Iconic) DeThumbnail
 
@@ -799,6 +809,7 @@ AddToFunc StartFunction
 #+ I Module FvwmButtons ftray
 + I Module FvwmButtons fterm
 + I Module FvwmIconMan IconManager
++ I Module FvwmPager PagePager *
 #+ I Module FvwmButtons FvwmButton-CenterPanel
 #+ I Module FvwmButtons PagerPanel2
 #+ I Exec exec /usr/lib/misc/xscreensaver/sonar -font 5x7 -ping $HOME/.ssh/known_hosts -geometry 250x250+0+0

@@ -25,6 +25,8 @@ DesktopName 5 Sys
 *FvwmPager: WindowColorsets 5 7
 #*FvwmPager: MiniIcons
 
+DestroyModuleConfig SinglePager: *
+
 *SinglePager: Geometry 600x120+0-0
 *SinglePager: Rows 1
 *SinglePager: Columns 1
@@ -40,3 +42,17 @@ DesktopName 5 Sys
 *SinglePager: Label 5 System
 *SinglePager: Colorset * 7
 *SinglePager: WindowColorsets 5 1
+
+DestroyModuleConfig PagePager: *
+
+*PagePager: Geometry 195x48+0-48
+*PagePager: Font Shadow=0:xft:Cuprum:Bold:Roman:size=9:encoding=iso10646-1:Shadow=1
+*PagePager: SmallFont none
+*PagePager: Colorset * 2
+*PagePager: WindowColorsets 5 7
+*PagePager: HilightColorset * 9
+*PagePager: Window3DBorders
+*PagePager: LabelsBelow
+*PagePager: MiniIcons
+*PagePager: SolidSeparators
+
