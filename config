@@ -616,16 +616,17 @@ Key 6		W	SM	MoveToDesk 0 5
 
 DestroyFunc MRT
 AddToFunc MRT
-+ I Maximize ewmhiwa True $0 $1
+#+ I Maximize ewmhiwa True $0 $1
++ I Maximize True $0 $1
 + I Move screen c $2 $3
 
-Key o		WT	SC	MRT 47 47 +0 +0
-Key p		WT	SC	MRT 47 47 -0 +0
-Key m		WT	SC	MRT 47 47 -0 -0
-Key n		WT	SC	MRT 47 47 +0 -0
-Key j		WT	SC	MRT 47 83 +0 +0
-Key l		WT	SC	MRT 47 90 -0 +0
-Key t		WT	4	FvwmRearrange -tile -v 0 95 -mn 2
+Key o		WT	SC	MRT 50 50 +0 +0
+Key p		WT	SC	MRT 50 50 -0 +0
+Key m		WT	SC	MRT 50 50 -0 -0
+Key n		WT	SC	MRT 50 50 +0 -0
+Key j		WT	SC	MRT 50 95 +0 +0
+Key l		WT	SC	MRT 50 100 -0 +0
+Key t		WT	4	FvwmRearrange -tile -v 0 100 -mn 2
 
 
 DestroyFunc IconifyTerm
