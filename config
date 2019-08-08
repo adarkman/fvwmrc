@@ -22,7 +22,9 @@ EWMHNumberOfDesktops 6
 #EWMHBaseStruts 0 86 0 0
 #EWMHBaseStruts 0 0 24 0
 # Left IconBox
-EWMHBaseStruts 82 0 88 0
+#EWMHBaseStruts 82 0 88 0
+# Left IconBox, right CDE panel
+EWMHBaseStruts 0 87 0 52
 
 # VW+GemStone/S needs at least 2 page to be comfortable
 # M+Up/Down - to swith (see mutch below)
@@ -781,7 +783,8 @@ Read PagerConfig
 
 ####################################### Panel
 #Read CDE-short
-Read CDE-panel.cde
+#Read CDE-panel.cde
+Read CDE-panel.cde-right.CDE-icons
 
 ####################################### Advanced taskbar
 Read iconbox

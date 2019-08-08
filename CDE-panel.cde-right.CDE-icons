@@ -91,15 +91,15 @@ DestroyModuleConfig leftp: *
 *leftp: Rows 5
 *leftp: Columns 1
 *leftp: Colorset 5
-*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmhdplop" `Exec exec wmhdplop --bigfont=comic/10`)
-*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmcpufreq" `Exec exec wmcpufreq`)
-*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmbiff" `Exec exec wmbiff`)
+*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmclockmon" `Exec exec sh -c 'LC_ALL=C LANG=C wmclockmon -bw '`) 
+*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmmemload" `Exec exec wmmemload -bw `)
+*leftp: (Frame 0, Padding 0 0, Icon CDE-icons/Fpterm.l.pm.png, Action Exec exec rxvt2)
 #*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmfsm" `Exec exec wmfsm`)
 #*leftp: (Frame 0, Padding 0 0, Icon CDE-icons/Fppenpd.l.pm.png, Action "Exec oowriter")
 #*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmab" `Exec exec wmab`)
 #*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmtop" `Exec exec wmtop`)
 *leftp: (Frame 0, Padding 0 0, Icon CDE-icons/DtBldr.l.pm.png, Action Popup MenuVW)
-*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmtime" `Exec exec wmtime`)
+*leftp: (Frame 0, Padding 0 0, Icon CDE-icons/Dtgraphmapt.l.pm.png, Padding 0 0, Action Exec firefox)
 #*leftp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmweather+" `Exec exec wmweather+ -s UKKK -m -cm -mmHg -kph -tempc`, Exec gvim)
 
 DestroyModuleConfig left: *
@@ -119,13 +119,14 @@ DestroyModuleConfig rightp: *
 *rightp: Columns 1
 #*rightp: Colorset 20
 *rightp: Colorset 5
-*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmnd" `Exec exec wmnd`, Exec systemsettings)
-*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmgtemp" `Exec exec wmgtemp -g line -H 80 -w 75 -m 30 -M 90`)
+*rightp: (Frame 0, Padding 0 0, Icon CDE-icons/Dttif.m.pm.png, Exec gwenview)
+*rightp: (Frame 0, Padding 0 0, Icon CDE-icons/Fpstyle.l.pm.png, Padding 0 0, Action Exec systemsettings)
 #*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmfreqview" `Exec exec wmfreqview -p /sys/devices/system/cpu/cpu0/cpufreq`, Exec terminal)
 #*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wminet" `Exec exec wminet`, Exec terminal)
 *rightp: (Frame 0, Padding 0 0, Icon CDE-icons/Fphome.l.pm.png, Action "Exec dolphin ~")
-*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmSMPmon" `Exec exec wmSMPmon`, Action Exec rxvt2 -geometry 200x80 -e htop)
-*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmacpi" `Exec exec wmacpi -w -f`)
+#*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmgtemp" `Exec exec wmgtemp -g line -H 80 -w 75 -m 30 -M 90`)
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmnetload" `Exec exec wmnetload -w -i enp0s17`)
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmcpuload" `Exec exec wmcpuload -bw`)
 #*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmforkplop" `Exec exec wmforkplop`, Action Exec terminal)
 
 DestroyModuleConfig right: *
@@ -196,7 +197,7 @@ DestroyModuleConfig CDE-panel: *
 #*CDE-panel: geometry 1152x85+60-0
 #*CDE-panel: geometry 86x780-0+32
 #*CDE-panel: geometry 86x780-0+10
-*CDE-panel: geometry 86x769-0-0
+*CDE-panel: geometry 86x769-0+0
 *CDE-panel: Colorset 5
 #*CDE-panel: Back aquamarine4
 *CDE-panel: Rows 9 
