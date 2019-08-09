@@ -21,6 +21,8 @@ DestroyModuleConfig IconManager: *
 
 *IconManager: Action Mouse 1 N sendcommand DeThumbnail
 *IconManager: Action Mouse 3 N sendcommand Thumbnail
+# Work on it...
+#*IconManager: Action Select sendcommand Raise
 
 
 
