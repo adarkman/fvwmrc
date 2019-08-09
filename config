@@ -187,6 +187,8 @@ Style Firefox		StartsOnDesk 3
 Style org.remmina.Remmina	!MWMDecor
 Style FvwmIconMan 	StaysOnTop, NoTitle, Borders, Sticky, WindowListSkip
 Style PagePager 	NoTitle, Sticky, Borders, BorderWidth 3, HandleWidth 3, StaysOnTop, WindowListSkip
+Style dolphin 		Sticky
+Style keepassxc		Sticky
 
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
