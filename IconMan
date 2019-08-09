@@ -19,10 +19,16 @@ DestroyModuleConfig IconManager: *
 *IconManager: UseWinList true
 *IconManager: ShowNoIcons false
 
-*IconManager: Action Mouse 1 N sendcommand DeThumbnail
+DestroyFunc IMActivate
+AddToFunc IMActivate
++ I DeThumbnail
++ I WarpToWindow 10 10
+#+ I Exec xdotool --window $[w.id] mousemove 10 10 
+
+*IconManager: Action Mouse 1 N sendcommand IMActivate
 *IconManager: Action Mouse 3 N sendcommand Thumbnail
 # Work on it...
-#*IconManager: Action Select sendcommand Raise
+*IconManager: Action Select sendcommand Raise
 
 
 
