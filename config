@@ -768,7 +768,7 @@ AddToFunc enter_handler
 #            |___________________  Unique window name/resource
 
 # Start FvwmAuto
-#AddToFunc StartFunction I Module FvwmAuto FvwmAutohide -menter enter_handler
+AddToFunc StartFunction I Module FvwmAuto FvwmAutohide -menter enter_handler
 
 ####################################### FvwmIdent
 *FvwmIdent: Colorset $[cs-window-active]
