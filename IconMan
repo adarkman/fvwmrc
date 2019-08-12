@@ -13,7 +13,7 @@ DestroyModuleConfig IconManager: *
 *IconManager: SelectButton down
 *IconManager: IconButton up
 *IconManager: ReliefThickness 1
-*IconManager: Resolution page
+*IconManager: Resolution desk
 *IconManager: Shape true
 *IconManager: Sort true
 *IconManager: UseWinList true
