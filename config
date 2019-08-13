@@ -421,6 +421,7 @@ AddToMenu FvwmWindowMenu
 + "" Nop
 + "$[gt.&Iconify]"%mini.iconify1.xpm%      	 Thumbnail
 + "$[gt.(Un)&Stick]"%mini.stick.xpm%         Stick
++ "$[gt.(Un)&Stick to Pages]"%mini.stick.xpm%         StickAcrossPages
 + "$[gt.(Un)Ma&ximize]"%mini.maximize1.xpm%  Maximize
 + "" Nop
 + "Move to &Desk"		Popup MoveToDeskMenu
@@ -761,11 +762,11 @@ AddToFunc WindowShadeFunc
 DestroyFunc enter_handler
 AddToFunc enter_handler
 + I AutohideFunc plasmashell 500 S
-#+ I autohide FvwmButtons 500 S
-#            ^           ^   ^
-#            |           |   |___  Shade direction (optional)
-#            |           |_______  Hide delay (milliseconds)
-#            |___________________  Unique window name/resource
+#+ I AutohideFunc FvwmButtons 500 S
+#					^           ^   ^
+#					|           |   |___  Shade direction (optional)
+#					|           |_______  Hide delay (milliseconds)
+#					|___________________  Unique window name/resource
 
 # Start FvwmAuto
 AddToFunc StartFunction I Module FvwmAuto FvwmAutohide -menter enter_handler
