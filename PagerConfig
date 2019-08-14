@@ -45,8 +45,8 @@ DestroyModuleConfig SinglePager: *
 
 DestroyModuleConfig PagePager: *
 
-*PagePager: Geometry 195x48+0-52
-*PagePager: Font Shadow=0:xft:Cuprum:Bold:Roman:size=9:encoding=iso10646-1:Shadow=1
+*PagePager: Geometry 195x46+0-0
+*PagePager: Font Shadow=0:xft:Cuprum:Bold:Roman:size=7:encoding=iso10646-1:Shadow=1
 *PagePager: SmallFont none
 *PagePager: Colorset * 2
 *PagePager: WindowColorsets 5 7

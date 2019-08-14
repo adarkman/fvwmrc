@@ -3,7 +3,7 @@ DestroyModuleConfig WindowSnap: *
 *WindowSnap: Rows 1
 *WindowSnap: Columns 1
 *WindowSnap: BoxSize fixed
-*WindowSnap: Geometry $[SNAPSHOT_SIZE]+0-108
+*WindowSnap: Geometry $[SNAPSHOT_SIZE]+0-55
 *WindowSnap: (Id WindowSnapBtn, Frame 0)
 
 DestroyModuleConfig IconManager: *
@@ -15,7 +15,7 @@ DestroyModuleConfig IconManager: *
 *IconManager: DrawIcons false
 *IconManager: FollowFocus true
 *IconManager: Format "%t"
-*IconManager: ManagerGeometry 0x3+0-0
+*IconManager: ManagerGeometry 0x3+205-0
 *IconManager: MaxButtonWidth 240
 *IconManager: PlaiButton up
 *IconManager: SelectButton down
@@ -31,5 +31,6 @@ DestroyModuleConfig IconManager: *
 *IconManager: Action Mouse 3 N sendcommand Thumbnail
 # Work on it...
 *IconManager: Action Select sendcommand Raise
+
 
 
