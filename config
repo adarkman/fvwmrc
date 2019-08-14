@@ -189,7 +189,7 @@ Style FvwmIconMan 	StaysOnTop, NoTitle, Borders, Sticky, WindowListSkip
 Style PagePager 	NoTitle, Sticky, Borders, BorderWidth 3, HandleWidth 3, StaysOnTop, WindowListSkip
 Style dolphin 		Sticky
 Style keepassxc		Sticky
-Style WindowSnap 	Layer 6, WindowListSkip, NeverFocus, NoTitle, BorderWidth 3, HandleWidth 3, NoIcon
+Style WindowSnap 	Layer 6, WindowListSkip, NeverFocus, NoTitle, BorderWidth 3, HandleWidth 3, NoIcon, Sticky
 
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]

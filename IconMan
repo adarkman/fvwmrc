@@ -1,5 +1,5 @@
 DestroyModuleConfig WindowSnap: *
-*WindowSnap: Colorset 30
+*WindowSnap: Colorset 10
 *WindowSnap: Rows 1
 *WindowSnap: Columns 1
 *WindowSnap: BoxSize fixed

@@ -56,7 +56,8 @@ Colorset 20 fg white, bg black
 #, Tint #838183 50
 
 # FvwmScript
-Colorset 30 fg black, bg #979797, fgsh #909090, RootTransparent
+Colorset 30 fg black, bg #979797, fgsh #909090
+#, RootTransparent
 Colorset 31 fg black, bg #979797, fgsh #909090, RootTransparent
 
 # IconBox transparent
