@@ -1,3 +1,11 @@
+DestroyModuleConfig WindowSnap: *
+*WindowSnap: Colorset 30
+*WindowSnap: Rows 1
+*WindowSnap: Columns 1
+*WindowSnap: BoxSize fixed
+*WindowSnap: Geometry $[SNAPSHOT_SIZE]+0-108
+*WindowSnap: (Id WindowSnapBtn, Frame 0)
+
 DestroyModuleConfig IconManager: *
 
 *IconManager: Font Shadow=1:xft:CourierC:Regular:size=10:encoding=iso10646-1
@@ -23,6 +31,5 @@ DestroyModuleConfig IconManager: *
 *IconManager: Action Mouse 3 N sendcommand Thumbnail
 # Work on it...
 *IconManager: Action Select sendcommand Raise
-
 
 

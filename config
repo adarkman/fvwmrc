@@ -189,6 +189,7 @@ Style FvwmIconMan 	StaysOnTop, NoTitle, Borders, Sticky, WindowListSkip
 Style PagePager 	NoTitle, Sticky, Borders, BorderWidth 3, HandleWidth 3, StaysOnTop, WindowListSkip
 Style dolphin 		Sticky
 Style keepassxc		Sticky
+Style WindowSnap 	Layer 6, WindowListSkip, NeverFocus, NoTitle, BorderWidth 3, HandleWidth 3, NoIcon
 
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
@@ -434,13 +435,16 @@ AddToMenu FvwmWindowMenu
 SetEnv THUMB_DIR $[HOME]/bmp/.fvwm
 #SetEnv THUMB_SIZE 120x100
 SetEnv THUMB_SIZE 60x90
+SetEnv SNAPSHOT_SIZE 195x170
 
-# В текущий момент используется FvwmIconMan (см. iconbox/IconMan2), поэтому добавлен
-# NoIcon, чтобы убрать иконки с десктопа, FvwmIconMan использует MiniIcon, поэтому
-# EWMHMiniIconOverride
-DestroyFunc Thumbnail
-AddToFunc Thumbnail
-+ I Raise
+DestroyFunc MakeSnapshot
+AddToFunc MakeSnapshot
++ I Current (!Iconic) Piperead "xwd -silent -id $[w.id] | \
+	convert -resize $[SNAPSHOT_SIZE] -frame 1x1 -mattecolor black \
+  	-quality 0 xwd:- png:$[THUMB_DIR]/icon.tmp.$[w.id].snap.png"
+
+DestroyFunc MakeIcon
+AddToFunc MakeIcon
 + I Piperead "xwd -silent -id $[w.id] | \
 	convert -resize $[THUMB_SIZE] -frame 1x1 -mattecolor black \
   	-quality 0 xwd:- png:$[THUMB_DIR]/icon.tmp.$[w.id].base.png"
@@ -449,6 +453,14 @@ AddToFunc Thumbnail
 #+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/bespin/icon-back.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
 #+ I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/bespin/Dark3btn.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
 + I Piperead "composite -gravity center $[THUMB_DIR]/icon.tmp.$[w.id].base.png $[HOME]/bmp/fvwm/Irix/cde-icon-base.png $[THUMB_DIR]/icon.tmp.$[w.id].png"
+
+# В текущий момент используется FvwmIconMan (см. iconbox/IconMan2), поэтому добавлен
+# NoIcon, чтобы убрать иконки с десктопа, FvwmIconMan использует MiniIcon, поэтому
+# EWMHMiniIconOverride
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
++ I Raise
++ I MakeIcon
 + I Exec exec FvwmCommand 'WindowId $[w.id] WindowStyle IconOverride, EWMHMiniIconOverride, Icon $[THUMB_DIR]/icon.tmp.$[w.id].png, StaysOnBottom, MiniIcon $[THUMB_DIR]/icon.tmp.$[w.id].png' # NoIcon
 + I All (CurrentPage, Iconic) PlaceAgain Icon
 + I Iconify
@@ -734,17 +746,25 @@ Key a	A	4	ShowOrHideTiled
 Key	a	A	S4	RaiseOrLowerTiled
  
 ####################################### Global FvwmEvent
-DestroyFunc RaiseTray
-AddToFunc RaiseTray
-+ I ThisWindow ("xfce4-panel") Raise
+#DestroyFunc StartupPlacement
+#AddToFunc StartupPlacement
+#+ I ThisWindow (wmgtemp) Move -0 +85
 
-DestroyFunc StartupPlacement
-AddToFunc StartupPlacement
-+ I ThisWindow (wmgtemp) Move -0 +85
+DestroyFunc IconmanSelect
+AddToFunc IconmanSelect
+#+ I Schedule 300 $[w.id] SendToModule WindowSnap ChangeButton WindowSnapBtn Icon $[THUMB_DIR]/icon.tmp.$[w.id].snap.png
++ I Schedule 300 $[w.id] PipeRead '$[HOME]/.fvwm/SetWindowSnapIcon.sh $[THUMB_DIR] $[w.id]'
++ I Schedule 300 $[w.id] Deschedule $[w.id]
 
+# 'Delay 1' - MUST HAVE , if we are does not want FvwmIconMan flickering
+# with with huge X.Org CPU consumption
+# This delay needed only for IconManager Raise window when selected
+# + raise_window SendToModule WindowSnap
+# For other events/functions use another FvwmEvent config without 'Delay'
 DestroyModuleConfig FvwmEvent: *
-*FvwmEvent: enter_window RaiseTray
-*FvwmEvent: add_window StartupPlacement
+*FvwmEvent: Delay 1 
+*FvwmEvent: raise_window "Silent IconmanSelect"
+#*FvwmEvent: add_window StartupPlacement
 
 ####################################### Autohide
 DestroyFunc AutohideFunc
@@ -770,6 +790,27 @@ AddToFunc enter_handler
 
 # Start FvwmAuto
 AddToFunc StartFunction I Module FvwmAuto FvwmAutohide -menter enter_handler
+
+####################################### Make Window Icons 
+# Needs RAM Disk to not slowdown WM (see IcondirSetup function below)
+DestroyFunc HideWS
+AddToFunc HideWS
++ I All (WindowSnap) Iconify on
+
+DestroyFunc ShowWS
+AddToFunc ShowWS
++ I All (WindowSnap) Iconify off 
+
+DestroyFunc SnapshotWindowFunc
+AddToFunc SnapshotWindowFunc
++ I ThisWindow (FvwmIconMan) ShowWS
++ I TestRc (Match) Break
++ I MakeIcon
++ I MakeSnapshot
++ I Exec exec FvwmCommand 'WindowId $[w.id] WindowStyle IconOverride, EWMHMiniIconOverride, Icon $[THUMB_DIR]/icon.tmp.$[w.id].png, MiniIcon $[THUMB_DIR]/icon.tmp.$[w.id].png' 
++ I All (WindowSnap) HideWS
+
+AddToFunc StartFunction I Module FvwmAuto FvwmSnapshotWindow -menter SnapshotWindowFunc
 
 ####################################### FvwmIdent
 *FvwmIdent: Colorset $[cs-window-active]
@@ -849,6 +890,7 @@ AddToFunc StartFunction
 + I Module FvwmButtons fterm
 + I Module FvwmIconMan IconManager
 + I Module FvwmPager PagePager *
++ I Module FvwmButtons WindowSnap
 #+ I Module FvwmButtons FvwmButton-CenterPanel
 #+ I Module FvwmButtons PagerPanel2
 #+ I Exec exec /usr/lib/misc/xscreensaver/sonar -font 5x7 -ping $HOME/.ssh/known_hosts -geometry 250x250+0+0
