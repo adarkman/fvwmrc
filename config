@@ -276,7 +276,7 @@ AddToMenu MenuGames
 
 DestroyMenu MenuSystem
 AddToMenu MenuSystem
-+	"KDE4 System &Settings "%apps/Cards.png%				Exec exec systemsettings
++	"KDE System &Settings "%apps/Cards.png%				Exec exec systemsettings5
 +	""													Nop
 +	"VmWare console"%misc/22x22/vmware.png%				Exec exec sudo /opt/vmware/server/console/bin/vmware-server-console
 +	"VmWare player"%misc/22x22/vmware.png%				Exec exec vmplayer
@@ -827,6 +827,13 @@ Read fterm.rc
 ####################################### IconManager
 Read IconMan
 
+####################################### IconDir to Ramdisk
+DestroyFunc IcondirSetup
+AddToFunc IcondirSetup
++ I Exec exec $[HOME]/.fvwm/IcondirSetup.sh "$[THUMB_DIR]"
+
+AddToFunc StartFunction I IcondirSetup
+
 ####################################### Screen Decor
 #Read TopLine
 ####################################### Startup
@@ -855,7 +862,7 @@ AddToFunc StartFunction
 #+ I Exec exec $HOME/bin/rxvt2 -fg black -name top -geometry 100x40+90+30 -e htop
 #+ I Exec exec stalonetray
 #+ I LayerIconify 0 2 true
-+ | Exec $HOME/.fvwm/ClosePlasmaDesktopWindow
++ I Exec exec $HOME/.fvwm/ClosePlasmaDesktopWindow
 #+ I HideCDE
 #+ I Module FvwmButtons IconBoxLeft
 #+	I	Module FvwmScript DriveInn
