@@ -64,6 +64,8 @@ Colorset 31 fg black, bg #979797, fgsh #909090, RootTransparent
 Colorset 16 fg white, bg white, hi #000000, sh #000000, RootTransparent, Tint black 60
 Colorset 17 fg white, bg black, hi #000000, sh #000000, RootTransparent, Tint black 85
 
+# Special Windows
+Colorset 666 fg #ffffff, bg #2b9e01, fgsh #333333
 
 MenuStyle * TrianglesRelief
 
@@ -94,6 +96,28 @@ AddButtonStyle 1 Vector 5 15x45@1 85x45@1 85x55@0 15x55@0 15x45@1
 AddButtonStyle 2 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
 
 AddButtonStyle 4 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+
+# Special windows - style
+DestroyDecor SpecialWindows
+AddToDecor SpecialWindows 
++ TitleStyle Centered Height 23
++ TitleStyle ActiveUp Colorset 666
++ TitleStyle ActiveDown Colorset 666
++ TitleStyle InactiveUp Colorset 10
++ TitleStyle InactiveDown Colorset 10
++ TitleStyle Inactive -- raised
++ TitleStyle Active -- raised
++ BorderStyle Active Colorset 666
++ BorderStyle Inactive Colorset 2
++ BorderStyle -- raised
++ ButtonStyle All -- UseTitleStyle 
++ ButtonStyle All Active Colorset 666 
++ ButtonStyle All Inactive Colorset 2 
++ ButtonStyle 1 Vector 5 15x45@1 85x45@1 85x55@0 15x55@0 15x45@1 
++ ButtonStyle 2 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
++ ButtonStyle 4 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+
+Style SpecialStyle UseDecor SpecialWindows
 
 Style * BorderWidth 5, HandleWidth 5
 Style * Handles

@@ -191,6 +191,8 @@ Style dolphin 		Sticky
 Style keepassxc		Sticky
 Style WindowSnap 	Layer 6, WindowListSkip, NeverFocus, NoTitle, BorderWidth 3, HandleWidth 3, NoIcon, Sticky
 
+Style X201@HD		UseStyle SpecialStyle
+
 ####################################### Menus
 MenuStyle * MenuColorset $[cs-menu-inactive], ActiveColorset $[cs-menu-active]
 #MenuStyle * Font Shadow=2:xft:LucidaGrande:Bold:Roman:size=8:encoding=10646-1
@@ -360,16 +362,16 @@ AddToFunc CreateDiskMenu
 + I AddToMenu MenuDisk	""													Nop
 + I AddToMenu MenuDisk	"Samba"%devices/iNet_Drive.png%						Exec exec dolphin smb:/
 + I AddToMenu MenuDisk	""													Nop
-+ I AddToMenu MenuDisk	"&Network drives"%devices/iNet_Drive.png%			Popup NetworkDrivesMenu
+#+ I AddToMenu MenuDisk	"&Network drives"%devices/iNet_Drive.png%			Popup NetworkDrivesMenu
 
+rangesky.csv
 DestroyMenu NetworkDrivesMenu
 AddToMenu NetworkDrivesMenu
 + DynamicPopupAction PipeRead '$[SCRIPTS_DIR]/MountMusic@gw NetworkDrivesMenu'
 
 DestroyMenu MenuRLogins
 AddToMenu MenuRLogins
-+	"171"%devices/Airport.png%						Exec exec rxvt2 -title 171 -e ssh -X 95.67.10.171
-+	"172"%devices/Airport.png%						Exec exec rxvt2 -title 172 -e ssh -X 95.67.10.172
++	"&X201"%devices/iTools_Drive.png%						Exec exec ${SIMPLE_CONSOLE} -title X201@HD -name X201@HD -e ssh x201.home
 
 DestroyMenu MainMenu
 AddToMenu	MainMenu	"Hell Design"	Title
@@ -796,10 +798,12 @@ AddToFunc StartFunction I Module FvwmAuto FvwmAutohide -menter enter_handler
 DestroyFunc HideWS
 AddToFunc HideWS
 + I All (WindowSnap) Iconify on
++ I All (WindowSnap) Layer 0 2
 
 DestroyFunc ShowWS
 AddToFunc ShowWS
 + I All (WindowSnap) Iconify off 
++ I All (WindowSnap) Layer 0 6
 
 DestroyFunc SnapshotWindowFunc
 AddToFunc SnapshotWindowFunc

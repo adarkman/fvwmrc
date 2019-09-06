@@ -125,7 +125,7 @@ DestroyModuleConfig rightp: *
 #*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wminet" `Exec exec wminet`, Exec terminal)
 *rightp: (Frame 0, Padding 0 0, Icon CDE-icons/Fphome.l.pm.png, Action "Exec dolphin ~")
 #*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmgtemp" `Exec exec wmgtemp -g line -H 80 -w 75 -m 30 -M 90`)
-*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmnetload" `Exec exec wmnetload -w -i enp0s17`)
+*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmnetload" `Exec exec wmnetload -w -i enp0s3`)
 *rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmcpuload" `Exec exec wmcpuload -bw`)
 #*rightp: (Frame 0, Padding 0 0, Swallow(UseOld) "wmforkplop" `Exec exec wmforkplop`, Action Exec terminal)
 
